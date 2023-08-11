@@ -1,0 +1,89 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mods",
+  "info": {
+    "singularName": "mod",
+    "pluralName": "mods",
+    "displayName": "Mod",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "developers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::developer.developer",
+      "inversedBy": "mods"
+    },
+    "utilities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::utility.utility",
+      "mappedBy": "mods"
+    },
+    "vehicles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::vehicle.vehicle",
+      "mappedBy": "mods"
+    },
+    "environments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::environment.environment",
+      "mappedBy": "mods"
+    },
+    "download_links": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "base.link"
+    },
+    "dlcs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::dlc.dlc",
+      "mappedBy": "mods"
+    },
+    "info_page": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "game_status": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "drivable",
+        "ai only",
+        "static"
+      ]
+    }
+  }
+}

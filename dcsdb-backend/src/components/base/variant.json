@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_base_variants",
+  "info": {
+    "displayName": "variant",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "mods": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mod.mod"
+    },
+    "dlcs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dlc.dlc"
+    },
+    "alias": {
+      "type": "string"
+    }
+  }
+}

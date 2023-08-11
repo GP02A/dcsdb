@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "utilities",
+  "info": {
+    "singularName": "utility",
+    "pluralName": "utilities",
+    "displayName": "Utility"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "alias": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "mods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::mod.mod",
+      "inversedBy": "utilities"
+    },
+    "dlcs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::dlc.dlc",
+      "mappedBy": "utilities"
+    }
+  }
+}

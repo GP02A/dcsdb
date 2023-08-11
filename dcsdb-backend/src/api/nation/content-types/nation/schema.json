@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nations",
+  "info": {
+    "singularName": "nation",
+    "pluralName": "nations",
+    "displayName": "Nation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "displayname": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "vehicles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::vehicle.vehicle",
+      "mappedBy": "national_origin"
+    }
+  }
+}

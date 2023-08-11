@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_base_links",
+  "info": {
+    "displayName": "download link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::platform.platform"
+    }
+  }
+}
