@@ -24,6 +24,7 @@ const SEARCH_VEHICLES = gql`
               id
               attributes {
                 name
+                displayname
               }
             }
           }
