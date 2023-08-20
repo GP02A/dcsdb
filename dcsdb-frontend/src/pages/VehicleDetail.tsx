@@ -4,9 +4,7 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-  // IonItemDivider,
   IonImg,
-  IonThumbnail,
   IonList,
   IonItem,
   IonChip,
@@ -16,15 +14,12 @@ import {
   IonCardSubtitle,
   IonCardContent,
   IonLabel,
-  IonItemDivider,
-  IonItemGroup,
   IonButton,
 } from "@ionic/react";
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import Loading from "./Loading";
 import Error from "./Error";
-import { Fragment } from "ionicons/dist/types/stencil-public-runtime";
 
 const VEHICLE = gql`
   query VEHICLE($id: ID!) {
@@ -142,6 +137,19 @@ const VehicleDetail = (pass) => {
             </IonCardSubtitle>
           </IonCardHeader>
           <IonList>
+            <IonItem>
+              <IonLabel className="ion-text-wrap">
+                domain:
+                {data.vehicle.data.attributes.vehicle_domains.data.length > 0 &&
+                  data.vehicle.data.attributes.vehicle_domains.data.map(
+                    ({ id, attributes }) => (
+                      <IonChip outline={true} key={id}>
+                        {attributes.name}
+                      </IonChip>
+                    )
+                  )}
+              </IonLabel>
+            </IonItem>
             <IonItem>
               <IonLabel className="ion-text-wrap">
                 national origin:

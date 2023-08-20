@@ -5,49 +5,77 @@ import {
   IonTitle,
   IonToolbar,
   // IonItemDivider,
-  IonImg,
-  IonThumbnail,
+  IonChip,
   IonList,
-  IonItem,
   IonLabel,
-} from '@ionic/react';
-import { useQuery, gql } from '@apollo/client';
-import Loading from './Loading';
-import Error from './Error';
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonItem,
+  IonButton,
+  IonCardContent,
+} from "@ionic/react";
+import { useQuery, gql } from "@apollo/client";
+import Loading from "./Loading";
+import Error from "./Error";
 
 const MOD = gql`
-query MOD ($id: ID!){
-  mod(id: $id) {
-    data {
-      id
-      attributes {
-        name
-        developers {
-          data {
+  query MOD($id: ID!) {
+    mod(id: $id) {
+      data {
+        id
+        attributes {
+          name
+          info_page
+          download_links {
             id
-            attributes {
-              name
+            url
+            platform {
+              data {
+                id
+                attributes {
+                  name
+                }
+              }
             }
           }
-        }
-        vehicles{
-          data {
-            attributes {
-              name
+          game_status
+          developers {
+            data {
+              id
+              attributes {
+                name
+              }
             }
           }
-        }
-        environments {
-          data {
-            attributes {
-              name
+          vehicles {
+            data {
+              id
+              attributes {
+                name
+              }
+            }
+          }
+          environments {
+            data {
+              id
+              attributes {
+                name
+              }
+            }
+          }
+          dlcs {
+            data {
+              id
+              attributes {
+                name
+              }
             }
           }
         }
       }
     }
   }
-}
 `;
 
 const ModDetail = (pass) => {
@@ -73,24 +101,92 @@ const ModDetail = (pass) => {
             <IonTitle size="large">{data.mod.data.attributes.name}</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonList>
-          <IonItem>
-            {/* <IonThumbnail slot="start">
-              {data.ip.Cover === null ? (
-                <div>暂缺</div>
-              ) : (
-                <IonImg src={process.env.REACT_APP_BACKEND + data.ip.Cover.url} />
-              )}
-            </IonThumbnail> */}
-            <IonLabel className="ion-text-wrap">{data.mod.data.attributes.name}</IonLabel>
-          </IonItem>
-          {/* <IonItemDivider>
-            <IonLabel>简介：</IonLabel>
-          </IonItemDivider>
-          <IonItem>
-            <div>{data.ip.Description}</div>
-          </IonItem> */}
-        </IonList>
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>{data.mod.data.attributes.name}</IonCardTitle>
+          </IonCardHeader>
+          <IonList>
+            <IonItem>
+              <IonLabel className="ion-text-wrap">
+                developers:
+                {data.mod.data.attributes.developers.data.length > 0 &&
+                  data.mod.data.attributes.developers.data.map(
+                    ({ id, attributes }) => (
+                      <IonChip outline={true} key={id}>
+                        {attributes.name}
+                      </IonChip>
+                    )
+                  )}
+              </IonLabel>
+            </IonItem>
+            <IonItem>
+              <IonLabel className="ion-text-wrap">
+                game status:&nbsp;{data.mod.data.attributes.game_status}
+              </IonLabel>
+            </IonItem>
+            <IonItem>
+              <IonLabel className="ion-text-wrap">
+                DLCs:&nbsp;
+                {data.mod.data.attributes.dlcs.data.length > 0 ? (
+                  data.mod.data.attributes.dlcs.data.map(
+                    ({ id, attributes }) => (
+                      <IonChip outline={true} key={id}>
+                        {attributes.name}
+                      </IonChip>
+                    )
+                  )
+                ) : (
+                  <span>none</span>
+                )}
+              </IonLabel>
+            </IonItem>
+            {data.mod.data.attributes.vehicles.data.length > 0 && (
+              <IonItem>
+                <IonLabel className="ion-text-wrap">
+                  vehicles:&nbsp;
+                  {data.mod.data.attributes.vehicles.data.map(
+                    ({ id, attributes }) => (
+                      <IonButton
+                        key={id}
+                        fill="outline"
+                        routerLink={"/vehicle/" + id}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {attributes.name}&nbsp;
+                      </IonButton>
+                    )
+                  )}
+                </IonLabel>
+              </IonItem>
+            )}
+            <IonCard>
+              <IonItem
+                href={data.mod.data.attributes.info_page}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IonLabel>Info Page</IonLabel>
+              </IonItem>
+              <IonCardContent>
+                <IonLabel className="ion-text-wrap">downlod links:</IonLabel>
+                {data.mod.data.attributes.download_links.map(
+                  ({ id, url, platform }) => (
+                    <IonButton
+                      key={id}
+                      fill="outline"
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {platform.data.attributes.name}
+                    </IonButton>
+                  )
+                )}
+              </IonCardContent>
+            </IonCard>
+          </IonList>
+        </IonCard>
       </IonContent>
     </IonPage>
   );
