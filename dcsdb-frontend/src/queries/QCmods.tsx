@@ -1,4 +1,3 @@
-import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import ModsList from "../components/ModsList";
 import LoadingMsg from "../components/LoadingMsg";
@@ -19,6 +18,15 @@ const SEARCH_MODS = gql`
         attributes {
           name
           developers {
+            data {
+              id
+              attributes {
+                name
+              }
+            }
+          }
+          game_status
+          dlcs {
             data {
               id
               attributes {
@@ -66,11 +74,7 @@ const QCmods = (props) => {
     );
   } else {
     // console.log(data.ips);
-    return (
-      <React.Fragment>
-        <ModsList mods={data.mods.data} />
-      </React.Fragment>
-    );
+    return <ModsList mods={data.mods.data} />;
   }
 };
 

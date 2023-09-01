@@ -1,4 +1,3 @@
-import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import VehiclesList from "../components/VehiclesList";
 import LoadingMsg from "../components/LoadingMsg";
@@ -6,7 +5,7 @@ import ErrorMsg from "../components/ErrorMsg";
 
 const SEARCH_VEHICLES = gql`
   query VEHICLES {
-    vehicles (pagination: { limit: 20 }) {
+    vehicles(pagination: { limit: 20 }) {
       data {
         id
         attributes {
@@ -71,11 +70,7 @@ const QAvehicles = (props) => {
     );
   } else {
     // console.log(data.vehicles.data);
-    return (
-      <React.Fragment>
-        <VehiclesList vehicles={data.vehicles.data} />
-      </React.Fragment>
-    );
+    return <VehiclesList vehicles={data.vehicles.data} />;
   }
 };
 

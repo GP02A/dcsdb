@@ -112,9 +112,15 @@ const ModDetail = (pass) => {
                 {data.mod.data.attributes.developers.data.length > 0 &&
                   data.mod.data.attributes.developers.data.map(
                     ({ id, attributes }) => (
-                      <IonChip outline={true} key={id}>
+                      <IonButton
+                        key={id}
+                        fill="outline"
+                        routerLink={"/developer/" + id}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {attributes.name}
-                      </IonChip>
+                      </IonButton>
                     )
                   )}
               </IonLabel>

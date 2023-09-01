@@ -1,25 +1,17 @@
+import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import ModsList from "../components/ModsList";
 import LoadingMsg from "../components/LoadingMsg";
 import ErrorMsg from "../components/ErrorMsg";
 
-const SEARCH_MODS = gql`
-  query MODS {
-    mods(pagination: { limit: 20 }) {
+const DEV_MODS = gql`
+  query MODS($id: ID!) {
+    mods(filters: { developers: { id: { eq: $id } } }) {
       data {
         id
         attributes {
           name
           developers {
-            data {
-              id
-              attributes {
-                name
-              }
-            }
-          }
-          game_status
-          dlcs {
             data {
               id
               attributes {
@@ -49,22 +41,30 @@ const SEARCH_MODS = gql`
   }
 `;
 
-const QAmods = (props) => {
-  const { loading, error, data } = useQuery(SEARCH_MODS, {
-    variables: { st: props.searchText },
+const QCmods = (pass) => {
+  const { loading, error, data } = useQuery(DEV_MODS, {
+    variables: { id: pass.match.params.id },
   });
+
   if (loading) return <LoadingMsg />;
+  // if (loading) return <p>loading...</p>;
   if (error) return <ErrorMsg />;
+  // if (error) return <p>Error :(</p>;
   if (data.mods.data.length === 0) {
+    // console.log(data.ips);
     return (
       <p className="ion-margin ion-text-center" color="warning">
         can't find any mods with this name
       </p>
     );
   } else {
-    // console.log(data.mods.data);
-    return <ModsList mods={data.mods.data} />;
+    // console.log(data.ips);
+    return (
+      <React.Fragment>
+        <ModsList mods={data.mods.data} />
+      </React.Fragment>
+    );
   }
 };
 
-export default QAmods;
+export default QCmods;

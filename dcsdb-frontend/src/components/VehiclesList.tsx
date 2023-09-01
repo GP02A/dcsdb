@@ -6,10 +6,11 @@ import {
   IonThumbnail,
   IonChip,
 } from "@ionic/react";
+import React from "react";
 
 const vehiclesList = (props) => {
   return (
-    <IonList>
+    <React.Fragment>
       {props.vehicles.map(({ id, attributes }) => (
         <IonItem key={id} routerLink={"/vehicle/" + id}>
           <IonThumbnail slot="start">
@@ -38,7 +39,7 @@ const vehiclesList = (props) => {
           </IonLabel>
         </IonItem>
       ))}
-    </IonList>
+    </React.Fragment>
   );
 };
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import VehiclesList from "../components/VehiclesList";
 import LoadingMsg from "../components/LoadingMsg";
@@ -75,11 +74,7 @@ const QCvehicles = (props) => {
     );
   } else {
     // console.log(data.ips);
-    return (
-      <React.Fragment>
-        <VehiclesList vehicles={data.vehicles.data} />
-      </React.Fragment>
-    );
+    return <VehiclesList vehicles={data.vehicles.data} />;
   }
 };
 

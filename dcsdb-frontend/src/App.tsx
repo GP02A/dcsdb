@@ -15,6 +15,8 @@ import Tab1 from "./pages/Tab1";
 import Tab2 from "./pages/Tab2";
 import Tab3 from "./pages/Tab3";
 import ModDetail from "./pages/ModDetail";
+import DevDetail from "./pages/DevDetail";
+import VehicleDetail from "./pages/VehicleDetail";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 /* Core CSS required for Ionic components to work properly */
@@ -35,8 +37,6 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
-import VehicleDetail from "./pages/VehicleDetail";
-
 
 const client = new ApolloClient({
   // uri: 'http://localhost:1337/graphql',
@@ -63,6 +63,7 @@ const App = () => (
             </Route>
             <Route path="/mod/:id" component={ModDetail} />
             <Route path="/vehicle/:id" component={VehicleDetail} />
+            <Route path="/developer/:id" component={DevDetail} />
             <Route exact path="/">
               <Redirect to="/tab1" />
             </Route>
