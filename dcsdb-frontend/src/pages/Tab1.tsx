@@ -31,7 +31,7 @@ const Tab1 = () => {
                 setSearchText(e.detail.value);
                 // setShowAll(true);
               }}
-              placeholder="搜索"
+              placeholder="Search mods"
               // onIonClear={() => {
               //   console.log('clear');
               // }}
@@ -59,8 +59,8 @@ const Tab1 = () => {
           cssClass="my-custom-class"
           // header={'Alert'}
           // subHeader={'Subtitle'}
-          message={'请输入搜索内容！！！'}
-          buttons={['关闭']}
+          message={'Please enter a search term!'}
+          buttons={['Close']}
         />
       </IonContent>
     </IonPage>

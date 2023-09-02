@@ -40,7 +40,7 @@ const Tab2 = () => {
                 setSearchText(e.detail.value);
                 // console.log(e.detail.value);
               }}
-              placeholder="搜索"
+              placeholder="Search vehicles"
               // onIonClear={() => {
               //   console.log('clear');
               // }}
@@ -64,8 +64,8 @@ const Tab2 = () => {
           cssClass="my-custom-class"
           // header={'Alert'}
           // subHeader={'Subtitle'}
-          message={"请输入搜索内容！！！"}
-          buttons={["关闭"]}
+          message={"Please enter a search term!"}
+          buttons={["Close"]}
         />
       </IonContent>
     </IonPage>

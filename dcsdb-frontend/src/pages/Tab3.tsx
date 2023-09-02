@@ -13,7 +13,7 @@ import {
   IonNote,
   IonIcon,
   IonCard,
-  IonCardContent
+  IonCardContent,
 } from "@ionic/react";
 import "./Tab3.css";
 import { useState } from "react";
@@ -61,7 +61,7 @@ const Tab3 = () => {
                 </IonLabel>
               </IonItem>
               <QLatestV cv={import.meta.env.VITE_VERSION} />
-              <QDBstat/>
+              <QDBstat />
 
               <IonItemDivider color="medium">
                 <IonLabel>Dev Contact</IonLabel>
@@ -82,7 +82,7 @@ const Tab3 = () => {
         )}
         {seg === "progress" && (
           <>
-            <div className="ion-margin">功能&amp;数据随缘龟速更新中</div>
+            <div className="ion-margin">slowly updating function&amp;data</div>
             <IonProgressBar value={0.1} buffer={0.2}></IonProgressBar>
             <IonList>
               {/* <IonListHeader>
@@ -93,31 +93,31 @@ const Tab3 = () => {
                 </IonLabel>
               </IonListHeader> */}
               <IonItem>
-                <IonLabel>网页应用</IonLabel>
+                <IonLabel>Web App</IonLabel>
                 <IonNote slot="end" color="success">
                   <IonIcon icon={checkmarkOutline}></IonIcon>
                 </IonNote>
               </IonItem>
               <IonItem>
-                <IonLabel>Android应用</IonLabel>
+                <IonLabel>Android App</IonLabel>
                 <IonNote slot="end" color="success">
                   <IonIcon icon={checkmarkOutline}></IonIcon>
                 </IonNote>
               </IonItem>
               <IonItem>
-                <IonLabel>IOS应用</IonLabel>
+                <IonLabel>IOS App</IonLabel>
                 <IonNote slot="end" color="warning">
                   <IonIcon icon={folderOpen}></IonIcon>
                 </IonNote>
               </IonItem>
               <IonItem>
-                <IonLabel>角色&amp;配音信息</IonLabel>
+                <IonLabel>Vehicles&amp;Mods detail info</IonLabel>
                 <IonNote slot="end" color="secondary">
                   <IonIcon icon={hammer}></IonIcon>
                 </IonNote>
               </IonItem>
               <IonItem>
-                <IonLabel>搜索类型切换</IonLabel>
+                <IonLabel>Search by category</IonLabel>
                 <IonNote slot="end" color="warning">
                   <IonIcon icon={folderOpen}></IonIcon>
                 </IonNote>
@@ -130,35 +130,55 @@ const Tab3 = () => {
           <>
             <IonCard>
               <IonHeader>
-                <div className="ion-padding">为什么数据载入慢/失败？</div>
+                <div className="ion-padding">Slow/Fail to load data?</div>
               </IonHeader>
               <IonCardContent>
                 <p>
-                  出于成本和开发期便利度的考量，目前项目使用的是海外服务器。根据各地网络状况的不同，可能存在较大的延时，甚至无响应情况。
+                  During early development stage, the backend data server is
+                  running on budget VPS
                 </p>
                 <div>
-                  后期视需求及财力可能会转用国内服务器，目前各位就随缘吧XD
+                  Might switch to a larger VPS if this project is getting more
+                  popular, as for now bear with it XD
                 </div>
               </IonCardContent>
             </IonCard>
             <IonCard>
               <IonHeader>
-                <div className="ion-padding">为什么没有收录XX作品？</div>
+                <div className="ion-padding">
+                  Why certain mod/vehicle is not included?
+                </div>
               </IonHeader>
               <IonCardContent>
                 <p>
-                  项目最终计划收录所有ACGN作品（没看错，轻小说也有）。但由于目前从代码到数据录入，只有拖延症加懒癌晚期的作者一人进行，故收录比较缓慢，范围也暂时局限在中国大陆内有渠道版权的作品上。
+                  Both the frontend and backend are maintained by a single
+                  developer who is also incharge of data input, so don't expect
+                  a fast and complete inclusion at this stage. Mods inclusion
+                  will start with popular mods and mods build by those popular
+                  developers, at the early stage only vehicle type mods will be
+                  included, later other type like utility, environment and so on
+                  will the added too.
                 </p>
-                <div>有脱发需求的盆友可以联系开发者（笑）</div>
+                <div>
+                  You could also contact developer if you think certain mod
+                  should be included right now, in this case you need to provide
+                  the offical published page/post of the mod
+                </div>
               </IonCardContent>
             </IonCard>
             <IonCard>
               <IonHeader>
-                <div className="ion-padding">IOS应用何时上线？</div>
+                <div className="ion-padding">
+                  When will the IOS App be available?
+                </div>
               </IonHeader>
               <IonCardContent>
                 <div>
-                  项目采用的是全平台通用代码，某种意义上说IOS版已经做好了。然而......开发者并没有能运行Xcode的苹果设备，无法最终调试和发布。目前暂无入手苹果电脑的计划，苹果用户可以先使用网页版，当然有其他更优秀的应用替代更好XD
+                  The frontend of this project is built with ionic which is an
+                  open source mobile UI toolkit for building modern, high
+                  quality cross-platform mobile apps from a single code base. So
+                  the IOS code is already there, but I currently don't have the
+                  time to go through the App Shop listing process......
                 </div>
               </IonCardContent>
             </IonCard>
