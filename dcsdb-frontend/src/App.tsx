@@ -17,6 +17,7 @@ import Tab3 from "./pages/Tab3";
 import ModDetail from "./pages/ModDetail";
 import DevDetail from "./pages/DevDetail";
 import VehicleDetail from "./pages/VehicleDetail";
+import NationDetail from "./pages/NationDetail";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 /* Core CSS required for Ionic components to work properly */
@@ -64,6 +65,7 @@ const App = () => (
             <Route path="/mod/:id" component={ModDetail} />
             <Route path="/vehicle/:id" component={VehicleDetail} />
             <Route path="/developer/:id" component={DevDetail} />
+            <Route path="/nation/:id" component={NationDetail} />
             <Route exact path="/">
               <Redirect to="/tab1" />
             </Route>

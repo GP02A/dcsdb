@@ -27,7 +27,15 @@ const vehiclesList = (props) => {
           </IonThumbnail>
           <IonLabel className="ion-text-wrap">
             <h3>{attributes.name}</h3>
-            {attributes.national_origin.data.length === 0 ? null : (
+            {attributes.national_origin && attributes.national_origin.data.length > 0 && (
+              <p>
+                National::&nbsp;
+                {attributes.national_origin.data.map(({ id, attributes }) => (
+                  <IonChip outline={true} key={id}>{attributes.displayname}&nbsp;</IonChip>
+                ))}
+              </p>
+            )}
+            {/* {attributes.national_origin.data.length === 0 ? null : (
               <p>national:
                 {attributes.national_origin.data.map(({ id, attributes }) => (
                   <IonChip outline={true} key={id}>
@@ -35,7 +43,7 @@ const vehiclesList = (props) => {
                   </IonChip>
                 ))}
               </p>
-            )}
+            )} */}
           </IonLabel>
         </IonItem>
       ))}

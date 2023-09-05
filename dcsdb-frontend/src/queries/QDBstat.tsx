@@ -33,7 +33,7 @@ const QDBstat = () => {
   return (
     <>
       <IonItemDivider color="medium">
-        <IonLabel>Database statistics</IonLabel>
+        <IonLabel>Database Statistics</IonLabel>
       </IonItemDivider>
       <IonItem>
         <IonLabel>Mods:</IonLabel>

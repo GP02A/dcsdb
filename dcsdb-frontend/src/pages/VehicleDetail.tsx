@@ -156,9 +156,15 @@ const VehicleDetail = (pass) => {
                 {data.vehicle.data.attributes.national_origin.data.length > 0 &&
                   data.vehicle.data.attributes.national_origin.data.map(
                     ({ id, attributes }) => (
-                      <IonChip outline={true} key={id}>
+                      <IonButton
+                          key={id}
+                          fill="outline"
+                          routerLink={"/nation/" + id}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                         {attributes.displayname}
-                      </IonChip>
+                      </IonButton>
                     )
                   )}
               </IonLabel>
