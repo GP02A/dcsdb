@@ -1,28 +1,30 @@
 import React from 'react';
 import { IonContent, IonHeader, IonLoading, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import { useTranslation } from "react-i18next";
 
 const Loading: React.FC = () => {
   // const [showLoading, setShowLoading] = useState(true);
+  const { t } = useTranslation();
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Loading</IonTitle>
+          <IonTitle>{t('Loading.header')}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">加载中...</IonTitle>
+            <IonTitle size="large">{t('Loading.header')}</IonTitle>
           </IonToolbar>
         </IonHeader>
         <p className="ion-margin ion-text-center">
-          <IonText color="secondary">努力加载中...</IonText>
+          <IonText color="secondary">{t('Loading.p1')}</IonText>
         </p>
         <p className="ion-margin ion-text-center">
-          <IonText color="medium">如若长时间没响应，大概是服务器跑路了ORZ</IonText>
+          <IonText color="medium">{t('Loading.p2')}</IonText>
         </p>
-        <IonLoading isOpen={true} message={'努力加载中...'} duration={5000} />
+        <IonLoading isOpen={true} message={t('Loading.p1')} duration={5000} />
       </IonContent>
     </IonPage>
   );

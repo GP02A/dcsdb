@@ -18,6 +18,7 @@ import {
 import { useQuery, gql } from "@apollo/client";
 import Loading from "./Loading";
 import Error from "./Error";
+import { useTranslation } from "react-i18next";
 
 const MOD = gql`
   query MOD($id: ID!) {
@@ -79,6 +80,7 @@ const MOD = gql`
 `;
 
 const ModDetail = (pass) => {
+  const { t } = useTranslation();
   const { loading, error, data } = useQuery(MOD, {
     variables: { id: pass.match.params.id },
   });
@@ -108,7 +110,7 @@ const ModDetail = (pass) => {
           <IonList>
             <IonItem>
               <IonLabel className="ion-text-wrap">
-                developers:
+                {t('ModDetail.developer')}&nbsp;
                 {data.mod.data.attributes.developers.data.length > 0 &&
                   data.mod.data.attributes.developers.data.map(
                     ({ id, attributes }) => (
@@ -127,12 +129,12 @@ const ModDetail = (pass) => {
             </IonItem>
             <IonItem>
               <IonLabel className="ion-text-wrap">
-                game status:&nbsp;{data.mod.data.attributes.game_status}
+              {t('ModDetail.gamestatus')}:&nbsp;{data.mod.data.attributes.game_status}
               </IonLabel>
             </IonItem>
             <IonItem>
               <IonLabel className="ion-text-wrap">
-                DLCs:&nbsp;
+              {t('ModDetail.dlc')}:&nbsp;
                 {data.mod.data.attributes.dlcs.data.length > 0 ? (
                   data.mod.data.attributes.dlcs.data.map(
                     ({ id, attributes }) => (
@@ -142,14 +144,14 @@ const ModDetail = (pass) => {
                     )
                   )
                 ) : (
-                  <span>none</span>
+                  <span>{t('ModDetail.nodlc')}</span>
                 )}
               </IonLabel>
             </IonItem>
             {data.mod.data.attributes.vehicles.data.length > 0 && (
               <IonItem>
                 <IonLabel className="ion-text-wrap">
-                  vehicles:&nbsp;
+                {t('ModDetail.vehicles')}:&nbsp;
                   {data.mod.data.attributes.vehicles.data.map(
                     ({ id, attributes }) => (
                       <IonButton
@@ -172,10 +174,10 @@ const ModDetail = (pass) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <IonLabel>Info Page</IonLabel>
+                <IonLabel>{t('ModDetail.infopage')}</IonLabel>
               </IonItem>
               <IonCardContent>
-                <IonLabel className="ion-text-wrap">downlod links:</IonLabel>
+                <IonLabel className="ion-text-wrap">{t('ModDetail.dlink')}:</IonLabel>
                 {data.mod.data.attributes.download_links.map(
                   ({ id, url, platform }) => (
                     <IonButton

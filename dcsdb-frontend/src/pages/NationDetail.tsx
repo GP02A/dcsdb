@@ -4,7 +4,6 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-  IonButton,
   IonItemGroup,
   IonItemDivider,
 } from "@ionic/react";
@@ -12,6 +11,7 @@ import { useQuery, gql } from "@apollo/client";
 import Loading from "./Loading";
 import Error from "./Error";
 import VehiclesList from "../components/VehiclesList";
+import { useTranslation } from "react-i18next";
 
 const NATION = gql`
   query NATION($id: ID!) {
@@ -42,6 +42,7 @@ const NATION = gql`
 `;
 
 const NationDetail = (pass) => {
+  const { t } = useTranslation();
   const { loading, error, data } = useQuery(NATION, {
     variables: { id: pass.match.params.id },
   });
@@ -66,7 +67,7 @@ const NationDetail = (pass) => {
         </IonHeader>
 
         <IonItemGroup>
-          <IonItemDivider>Vehicles</IonItemDivider>
+          <IonItemDivider>{t('NationDetail.vehicles')}</IonItemDivider>
           <VehiclesList vehicles={data.nation.data.attributes.vehicles.data} />
         </IonItemGroup>
       </IonContent>

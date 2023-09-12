@@ -1,21 +1,22 @@
 import {
   IonImg,
-  IonList,
   IonItem,
   IonLabel,
   IonThumbnail,
   IonChip,
 } from "@ionic/react";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const vehiclesList = (props) => {
+  const { t } = useTranslation();
   return (
     <React.Fragment>
       {props.vehicles.map(({ id, attributes }) => (
         <IonItem key={id} routerLink={"/vehicle/" + id}>
           <IonThumbnail slot="start">
             {attributes.cover === null ? (
-              <div>暂缺</div>
+              <div>NA</div>
             ) : (
               <IonImg
                 src={
@@ -29,7 +30,7 @@ const vehiclesList = (props) => {
             <h3>{attributes.name}</h3>
             {attributes.national_origin && attributes.national_origin.data.length > 0 && (
               <p>
-                National::&nbsp;
+                {t('Lists.nation')}:&nbsp;
                 {attributes.national_origin.data.map(({ id, attributes }) => (
                   <IonChip outline={true} key={id}>{attributes.displayname}&nbsp;</IonChip>
                 ))}

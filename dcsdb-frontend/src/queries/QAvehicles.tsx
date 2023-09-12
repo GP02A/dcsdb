@@ -56,22 +56,11 @@ const SEARCH_VEHICLES = gql`
   }
 `;
 
-const QAvehicles = (props) => {
-  const { loading, error, data } = useQuery(SEARCH_VEHICLES, {
-    variables: { st: props.searchText },
-  });
+const QAvehicles = () => {
+  const { loading, error, data } = useQuery(SEARCH_VEHICLES);
   if (loading) return <LoadingMsg />;
   if (error) return <ErrorMsg />;
-  if (data.vehicles.data.length === 0) {
-    return (
-      <p className="ion-margin ion-text-center" color="warning">
-        can't find any vehicles with this name
-      </p>
-    );
-  } else {
-    // console.log(data.vehicles.data);
-    return <VehiclesList vehicles={data.vehicles.data} />;
-  }
+  return <VehiclesList vehicles={data.vehicles.data} />;
 };
 
 export default QAvehicles;

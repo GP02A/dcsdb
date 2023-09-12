@@ -1,13 +1,15 @@
 import { IonText, IonLoading } from '@ionic/react';
+import { useTranslation } from "react-i18next";
 
 const LoadingMsg: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <>
       <p className="ion-margin ion-text-center">
-        <IonText color="secondary">Loading...</IonText>
+        <IonText color="secondary">{t('LoadingMsg.p1')}</IonText>
       </p>
       <p className="ion-margin ion-text-center">
-        <IonText color="medium">If it take forever to load, the server might be offline atm.....ORZ</IonText>
+        <IonText color="medium">{t('LoadingMsg.p2')}</IonText>
       </p>
       <IonLoading isOpen={true} message={'Loading...'} duration={5000} />
     </>

@@ -12,11 +12,13 @@ import { checkmarkOutline } from "ionicons/icons";
 import { useState } from "react";
 import Tab2Switcher from "../components/Tab2Switcher";
 import "./Tab2.css";
+import { useTranslation } from "react-i18next";
 
 const Tab2 = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [searchTextPass, setSearchTextPass] = useState("");
+  const { t } = useTranslation();
   return (
     <IonPage>
       <IonHeader>
@@ -38,12 +40,9 @@ const Tab2 = () => {
               value={searchText!}
               onIonInput={(e) => {
                 setSearchText(e.detail.value);
-                // console.log(e.detail.value);
               }}
-              placeholder="Search vehicles"
-              // onIonClear={() => {
-              //   console.log('clear');
-              // }}
+              placeholder={t("Tab2.searchhint")}
+              // placeholder="Search mods"
             ></IonSearchbar>
             <IonButton fill="outline" slot="end" type="submit">
               <IonIcon icon={checkmarkOutline} />
@@ -62,10 +61,10 @@ const Tab2 = () => {
           isOpen={showAlert}
           onDidDismiss={() => setShowAlert(false)}
           cssClass="my-custom-class"
-          // header={'Alert'}
-          // subHeader={'Subtitle'}
-          message={"Please enter a search term!"}
-          buttons={["Close"]}
+          // message={"Please enter a search term!"}
+          // buttons={["Close"]}
+          message={t("Tab1.blanksearchalert")}
+          buttons={[t("Tab1.blanksearchalertclose")]}
         />
       </IonContent>
     </IonPage>

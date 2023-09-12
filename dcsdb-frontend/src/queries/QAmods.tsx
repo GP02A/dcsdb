@@ -49,22 +49,11 @@ const SEARCH_MODS = gql`
   }
 `;
 
-const QAmods = (props) => {
-  const { loading, error, data } = useQuery(SEARCH_MODS, {
-    variables: { st: props.searchText },
-  });
+const QAmods = () => {
+  const { loading, error, data } = useQuery(SEARCH_MODS);
   if (loading) return <LoadingMsg />;
   if (error) return <ErrorMsg />;
-  if (data.mods.data.length === 0) {
-    return (
-      <p className="ion-margin ion-text-center" color="warning">
-        can't find any mods with this name
-      </p>
-    );
-  } else {
-    // console.log(data.mods.data);
-    return <ModsList mods={data.mods.data} />;
-  }
+  return <ModsList mods={data.mods.data} />;
 };
 
 export default QAmods;

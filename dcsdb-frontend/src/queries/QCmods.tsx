@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import ModsList from "../components/ModsList";
 import LoadingMsg from "../components/LoadingMsg";
 import ErrorMsg from "../components/ErrorMsg";
+import { useTranslation } from "react-i18next";
 
 const SEARCH_MODS = gql`
   query MODS($st: String!) {
@@ -57,6 +58,7 @@ const SEARCH_MODS = gql`
 `;
 
 const QCmods = (props) => {
+  const { t } = useTranslation();
   const { loading, error, data } = useQuery(SEARCH_MODS, {
     variables: { st: props.searchText },
   });
@@ -69,7 +71,7 @@ const QCmods = (props) => {
     // console.log(data.ips);
     return (
       <p className="ion-margin ion-text-center" color="warning">
-        can't find any mods with this name
+        {t('QCmods.noresult')}
       </p>
     );
   } else {

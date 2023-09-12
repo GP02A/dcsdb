@@ -29,7 +29,7 @@ const QLatestV = (props) => {
     <>
       {props.cv !== data.appInfo.data.attributes.LatestVersion && (
         <IonItem href={'https://' + data.appInfo.data.attributes.LVLink} target="_blank">
-          <IonLabel>Latest Version</IonLabel>
+          <IonLabel>{props.lv}</IonLabel>
           <IonLabel class="ion-text-end">v{data.appInfo.data.attributes.LatestVersion}</IonLabel>
         </IonItem>
       )}

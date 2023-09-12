@@ -3,11 +3,13 @@ import { checkmarkOutline } from 'ionicons/icons';
 import { useState } from 'react';
 import Tab1Switcher from '../components/Tab1Switcher';
 import './Tab1.css';
+import { useTranslation } from "react-i18next";
 
 const Tab1 = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [searchText, setSearchText] = useState('');
   const [searchTextPass, setSearchTextPass] = useState('');
+  const { t } = useTranslation();
   return (
     <IonPage>
       <IonHeader>
@@ -31,7 +33,7 @@ const Tab1 = () => {
                 setSearchText(e.detail.value);
                 // setShowAll(true);
               }}
-              placeholder="Search mods"
+              placeholder={t('Tab1.searchhint')}
               // onIonClear={() => {
               //   console.log('clear');
               // }}
@@ -59,8 +61,8 @@ const Tab1 = () => {
           cssClass="my-custom-class"
           // header={'Alert'}
           // subHeader={'Subtitle'}
-          message={'Please enter a search term!'}
-          buttons={['Close']}
+          message={t('Tab1.blanksearchalert')}
+          buttons={[t('Tab1.blanksearchalertclose')]}
         />
       </IonContent>
     </IonPage>

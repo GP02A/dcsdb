@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import VehiclesList from "../components/VehiclesList";
 import LoadingMsg from "../components/LoadingMsg";
 import ErrorMsg from "../components/ErrorMsg";
+import { useTranslation } from "react-i18next";
 
 const SEARCH_VEHICLES = gql`
   query VEHICLES($st: String!) {
@@ -57,6 +58,7 @@ const SEARCH_VEHICLES = gql`
 `;
 
 const QCvehicles = (props) => {
+  const { t } = useTranslation();
   const { loading, error, data } = useQuery(SEARCH_VEHICLES, {
     variables: { st: props.searchText },
   });
@@ -69,7 +71,7 @@ const QCvehicles = (props) => {
     // console.log(data.ips);
     return (
       <p className="ion-margin ion-text-center" color="warning">
-        can't find any vehicles with this name
+        {t('QCvehicles.noresult')}
       </p>
     );
   } else {

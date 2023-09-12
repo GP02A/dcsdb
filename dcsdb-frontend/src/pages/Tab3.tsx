@@ -20,9 +20,11 @@ import { useState } from "react";
 import QLatestV from "../queries/QLatestV";
 import { checkmarkOutline, folderOpen, hammer } from "ionicons/icons";
 import QDBstat from "../queries/QDBstat";
+import { useTranslation } from "react-i18next";
 
 const Tab3 = () => {
   const [seg, setSeg] = useState("info");
+  const { t } = useTranslation();
   return (
     <IonPage>
       <IonHeader>
@@ -36,13 +38,13 @@ const Tab3 = () => {
             }}
           >
             <IonSegmentButton value="info">
-              <IonLabel>Info</IonLabel>
+              <IonLabel>{t("Tab3.seg1.tabname")}</IonLabel>
             </IonSegmentButton>
             <IonSegmentButton value="progress">
-              <IonLabel>Progress</IonLabel>
+              <IonLabel>{t("Tab3.seg2.tabname")}</IonLabel>
             </IonSegmentButton>
             <IonSegmentButton value="faq">
-              <IonLabel>FAQ</IonLabel>
+              <IonLabel>{t("Tab3.seg3.tabname")}</IonLabel>
             </IonSegmentButton>
           </IonSegment>
         </IonToolbar>
@@ -52,37 +54,45 @@ const Tab3 = () => {
           <>
             <IonList>
               <IonItemDivider color="medium">
-                <IonLabel>DCSdb</IonLabel>
+                <IonLabel>{t("Tab3.seg1.appname")}</IonLabel>
               </IonItemDivider>
               <IonItem>
-                <IonLabel>Version</IonLabel>
+                <IonLabel>{t("Tab3.seg1.cv")}</IonLabel>
                 <IonLabel class="ion-text-end">
                   v{import.meta.env.VITE_VERSION}
                 </IonLabel>
               </IonItem>
-              <QLatestV cv={import.meta.env.VITE_VERSION} />
+              <QLatestV
+                cv={import.meta.env.VITE_VERSION}
+                lv={t("Tab3.seg1.lv")}
+              />
               <QDBstat />
 
               <IonItemDivider color="medium">
-                <IonLabel>Dev Contact</IonLabel>
+                <IonLabel>{t("Tab3.seg1.devcontact")}</IonLabel>
               </IonItemDivider>
               <IonItem href="https://github.com/GP02A" target="_blank">
-                <IonLabel>GP02A</IonLabel>
-                <IonLabel class="ion-text-end">Github</IonLabel>
+                <IonLabel>{t("Tab3.seg1.githubacc")}</IonLabel>
+                <IonLabel class="ion-text-end">
+                  {t("Tab3.seg1.github")}
+                </IonLabel>
               </IonItem>
               <IonItem
                 href="https://space.bilibili.com/32205251"
                 target="_blank"
               >
-                <IonLabel>穆·撒加</IonLabel>
-                <IonLabel class="ion-text-end">Bilibili</IonLabel>
+                <IonLabel>{t("Tab3.seg1.bilibiliacc")}</IonLabel>
+                <IonLabel class="ion-text-end">
+                  {t("Tab3.seg1.bilibili")}
+                </IonLabel>
               </IonItem>
             </IonList>
           </>
         )}
         {seg === "progress" && (
           <>
-            <div className="ion-margin">slowly updating function&amp;data</div>
+            {/* <div className="ion-margin">slowly updating function&amp;data</div> */}
+            <div className="ion-margin">{t("Tab3.seg2.header")}</div>
             <IonProgressBar value={0.1} buffer={0.2}></IonProgressBar>
             <IonList>
               {/* <IonListHeader>
@@ -93,31 +103,31 @@ const Tab3 = () => {
                 </IonLabel>
               </IonListHeader> */}
               <IonItem>
-                <IonLabel>Web App</IonLabel>
+                <IonLabel>{t("Tab3.seg2.webapp")}</IonLabel>
                 <IonNote slot="end" color="success">
                   <IonIcon icon={checkmarkOutline}></IonIcon>
                 </IonNote>
               </IonItem>
               <IonItem>
-                <IonLabel>Android App</IonLabel>
+                <IonLabel>{t("Tab3.seg2.androidapp")}</IonLabel>
                 <IonNote slot="end" color="success">
                   <IonIcon icon={checkmarkOutline}></IonIcon>
                 </IonNote>
               </IonItem>
               <IonItem>
-                <IonLabel>IOS App</IonLabel>
+                <IonLabel>{t("Tab3.seg2.iosapp")}</IonLabel>
                 <IonNote slot="end" color="warning">
                   <IonIcon icon={folderOpen}></IonIcon>
                 </IonNote>
               </IonItem>
               <IonItem>
-                <IonLabel>Vehicles&amp;Mods detail info</IonLabel>
+                <IonLabel>{t("Tab3.seg2.detailinfo")}</IonLabel>
                 <IonNote slot="end" color="secondary">
                   <IonIcon icon={hammer}></IonIcon>
                 </IonNote>
               </IonItem>
               <IonItem>
-                <IonLabel>Search by category</IonLabel>
+                <IonLabel>{t("Tab3.seg2.sbc")}</IonLabel>
                 <IonNote slot="end" color="warning">
                   <IonIcon icon={folderOpen}></IonIcon>
                 </IonNote>
@@ -130,27 +140,27 @@ const Tab3 = () => {
           <>
             <IonCard>
               <IonHeader>
-                <div className="ion-padding">Slow/Fail to load data?</div>
+                <div className="ion-padding">{t("Tab3.seg3.ch1")}</div>
               </IonHeader>
               <IonCardContent>
-                <p>
+                {t("Tab3.seg3.cc1")}
+                {/* <p>
                   During early development stage, the backend data server is
                   running on budget VPS
                 </p>
                 <div>
                   Might switch to a larger VPS if this project is getting more
                   popular, as for now bear with it XD
-                </div>
+                </div> */}
               </IonCardContent>
             </IonCard>
             <IonCard>
               <IonHeader>
-                <div className="ion-padding">
-                  Why certain mod/vehicle is not included?
-                </div>
+                <div className="ion-padding">{t("Tab3.seg3.ch2")}</div>
               </IonHeader>
               <IonCardContent>
-                <p>
+                {t("Tab3.seg3.cc2")}
+                {/* <p>
                   Both the frontend and backend are maintained by a single
                   developer who is also incharge of data input, so don't expect
                   a fast and complete inclusion at this stage. Mods inclusion
@@ -163,23 +173,22 @@ const Tab3 = () => {
                   You could also contact developer if you think certain mod
                   should be included right now, in this case you need to provide
                   the offical published page/post of the mod
-                </div>
+                </div> */}
               </IonCardContent>
             </IonCard>
             <IonCard>
               <IonHeader>
-                <div className="ion-padding">
-                  When will the IOS App be available?
-                </div>
+                <div className="ion-padding">{t("Tab3.seg3.ch3")}</div>
               </IonHeader>
               <IonCardContent>
-                <div>
+                {t("Tab3.seg3.cc3")}
+                {/* <div>
                   The frontend of this project is built with ionic which is an
                   open source mobile UI toolkit for building modern, high
                   quality cross-platform mobile apps from a single code base. So
                   the IOS code is already there, but I currently don't have the
                   time to go through the App Shop listing process......
-                </div>
+                </div> */}
               </IonCardContent>
             </IonCard>
           </>

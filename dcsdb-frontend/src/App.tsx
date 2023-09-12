@@ -10,7 +10,11 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { informationCircleOutline, airplaneOutline, gameControllerOutline } from "ionicons/icons";
+import {
+  informationCircleOutline,
+  airplaneOutline,
+  gameControllerOutline,
+} from "ionicons/icons";
 import Tab1 from "./pages/Tab1";
 import Tab2 from "./pages/Tab2";
 import Tab3 from "./pages/Tab3";
@@ -19,6 +23,7 @@ import DevDetail from "./pages/DevDetail";
 import VehicleDetail from "./pages/VehicleDetail";
 import NationDetail from "./pages/NationDetail";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { useTranslation } from "react-i18next";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -47,50 +52,53 @@ const client = new ApolloClient({
 
 setupIonicReact();
 
-const App = () => (
-  <IonApp>
-    <ApolloProvider client={client}>
-      <IonReactRouter>
-        <IonTabs>
-          <IonRouterOutlet>
-            <Route exact path="/tab1">
-              <Tab1 />
-            </Route>
-            <Route exact path="/tab2">
-              <Tab2 />
-            </Route>
-            <Route path="/tab3">
-              <Tab3 />
-            </Route>
-            <Route path="/mod/:id" component={ModDetail} />
-            <Route path="/vehicle/:id" component={VehicleDetail} />
-            <Route path="/developer/:id" component={DevDetail} />
-            <Route path="/nation/:id" component={NationDetail} />
-            <Route exact path="/">
-              <Redirect to="/tab1" />
-            </Route>
-            <Route>
-              <Redirect to="/tab1" />
-            </Route>
-          </IonRouterOutlet>
-          <IonTabBar slot="bottom">
-            <IonTabButton tab="tab1" href="/tab1">
-              <IonIcon aria-hidden="true" icon={gameControllerOutline} />
-              <IonLabel>Mods</IonLabel>
-            </IonTabButton>
-            <IonTabButton tab="tab2" href="/tab2">
-              <IonIcon aria-hidden="true" icon={airplaneOutline} />
-              <IonLabel>Vehicles</IonLabel>
-            </IonTabButton>
-            <IonTabButton tab="tab3" href="/tab3">
-              <IonIcon aria-hidden="true" icon={informationCircleOutline} />
-              <IonLabel>Info</IonLabel>
-            </IonTabButton>
-          </IonTabBar>
-        </IonTabs>
-      </IonReactRouter>
-    </ApolloProvider>
-  </IonApp>
-);
+const App = () => {
+  const { t } = useTranslation();
+  return (
+    <IonApp>
+      <ApolloProvider client={client}>
+        <IonReactRouter>
+          <IonTabs>
+            <IonRouterOutlet>
+              <Route exact path="/tab1">
+                <Tab1 />
+              </Route>
+              <Route exact path="/tab2">
+                <Tab2 />
+              </Route>
+              <Route path="/tab3">
+                <Tab3 />
+              </Route>
+              <Route path="/mod/:id" component={ModDetail} />
+              <Route path="/vehicle/:id" component={VehicleDetail} />
+              <Route path="/developer/:id" component={DevDetail} />
+              <Route path="/nation/:id" component={NationDetail} />
+              <Route exact path="/">
+                <Redirect to="/tab1" />
+              </Route>
+              <Route>
+                <Redirect to="/tab1" />
+              </Route>
+            </IonRouterOutlet>
+            <IonTabBar slot="bottom">
+              <IonTabButton tab="tab1" href="/tab1">
+                <IonIcon aria-hidden="true" icon={gameControllerOutline} />
+                <IonLabel>{t("App.tab1")}</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="tab2" href="/tab2">
+                <IonIcon aria-hidden="true" icon={airplaneOutline} />
+                <IonLabel>{t("App.tab2")}</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="tab3" href="/tab3">
+                <IonIcon aria-hidden="true" icon={informationCircleOutline} />
+                <IonLabel>{t("App.tab3")}</IonLabel>
+              </IonTabButton>
+            </IonTabBar>
+          </IonTabs>
+        </IonReactRouter>
+      </ApolloProvider>
+    </IonApp>
+  );
+};
 
 export default App;

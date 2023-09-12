@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import LoadingMsg from "../components/LoadingMsg";
 import ErrorMsg from "../components/ErrorMsg";
 import { IonItemDivider, IonItem, IonLabel } from "@ionic/react";
+import { useTranslation } from "react-i18next";
 
 const DBstat = gql`
   query DBstat {
@@ -23,6 +24,7 @@ const DBstat = gql`
 `;
 
 const QDBstat = () => {
+  const { t } = useTranslation();
   const { loading, error, data } = useQuery(DBstat);
 
   if (loading) return <LoadingMsg />;
@@ -33,16 +35,16 @@ const QDBstat = () => {
   return (
     <>
       <IonItemDivider color="medium">
-        <IonLabel>Database Statistics</IonLabel>
+        <IonLabel>{t('QDBstat.dbstat')}</IonLabel>
       </IonItemDivider>
       <IonItem>
-        <IonLabel>Mods:</IonLabel>
+        <IonLabel>{t('QDBstat.mods')}</IonLabel>
         <IonLabel class="ion-text-end">
           {data.mods.meta.pagination.total}
         </IonLabel>
       </IonItem>
       <IonItem>
-        <IonLabel>Vehicles:</IonLabel>
+        <IonLabel>{t('QDBstat.vehicles')}</IonLabel>
         <IonLabel class="ion-text-end">
           {data.vehicles.meta.pagination.total}
         </IonLabel>

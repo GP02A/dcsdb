@@ -12,6 +12,7 @@ import { useQuery, gql } from "@apollo/client";
 import Loading from "./Loading";
 import Error from "./Error";
 import ModsList from "../components/ModsList";
+import { useTranslation } from "react-i18next";
 
 const DEV = gql`
   query DEV($id: ID!) {
@@ -45,6 +46,7 @@ const DEV = gql`
 `;
 
 const DevDetail = (pass) => {
+  const { t } = useTranslation();
   const { loading, error, data } = useQuery(DEV, {
     variables: { id: pass.match.params.id },
   });
@@ -76,11 +78,11 @@ const DevDetail = (pass) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Home Page
+            {t('DevDetail.hp')}
           </IonButton>
         )}
         <IonItemGroup>
-          <IonItemDivider>Mods</IonItemDivider>
+          <IonItemDivider>{t('DevDetail.mods')}</IonItemDivider>
           <ModsList mods={data.developer.data.attributes.mods.data} />
         </IonItemGroup>
       </IonContent>

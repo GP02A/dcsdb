@@ -41,7 +41,7 @@ const DEV_MODS = gql`
   }
 `;
 
-const QCmods = (pass) => {
+const Qdev_mods = (pass) => {
   const { loading, error, data } = useQuery(DEV_MODS, {
     variables: { id: pass.match.params.id },
   });
@@ -50,8 +50,8 @@ const QCmods = (pass) => {
   // if (loading) return <p>loading...</p>;
   if (error) return <ErrorMsg />;
   // if (error) return <p>Error :(</p>;
+  // console.log(data.mods.data);
   if (data.mods.data.length === 0) {
-    // console.log(data.ips);
     return (
       <p className="ion-margin ion-text-center" color="warning">
         can't find any mods with this name
@@ -67,4 +67,4 @@ const QCmods = (pass) => {
   }
 };
 
-export default QCmods;
+export default Qdev_mods;

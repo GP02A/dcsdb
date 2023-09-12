@@ -20,6 +20,7 @@ import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import Loading from "./Loading";
 import Error from "./Error";
+import { useTranslation } from "react-i18next";
 
 const VEHICLE = gql`
   query VEHICLE($id: ID!) {
@@ -97,6 +98,7 @@ const VEHICLE = gql`
 `;
 
 const VehicleDetail = (pass) => {
+  const { t } = useTranslation();
   const { loading, error, data } = useQuery(VEHICLE, {
     variables: { id: pass.match.params.id },
   });
@@ -139,7 +141,7 @@ const VehicleDetail = (pass) => {
           <IonList>
             <IonItem>
               <IonLabel className="ion-text-wrap">
-                domain:
+                {t("VehicleDetail.domain")}:&nbsp;
                 {data.vehicle.data.attributes.vehicle_domains.data.length > 0 &&
                   data.vehicle.data.attributes.vehicle_domains.data.map(
                     ({ id, attributes }) => (
@@ -152,17 +154,17 @@ const VehicleDetail = (pass) => {
             </IonItem>
             <IonItem>
               <IonLabel className="ion-text-wrap">
-                national origin:
+                {t("VehicleDetail.origin")}:&nbsp;
                 {data.vehicle.data.attributes.national_origin.data.length > 0 &&
                   data.vehicle.data.attributes.national_origin.data.map(
                     ({ id, attributes }) => (
                       <IonButton
-                          key={id}
-                          fill="outline"
-                          routerLink={"/nation/" + id}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        key={id}
+                        fill="outline"
+                        routerLink={"/nation/" + id}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {attributes.displayname}
                       </IonButton>
                     )
@@ -171,7 +173,7 @@ const VehicleDetail = (pass) => {
             </IonItem>
             <IonItem>
               <IonLabel className="ion-text-wrap">
-                manufacturers:&nbsp;
+                {t("VehicleDetail.manufacturers")}:&nbsp;
                 {data.vehicle.data.attributes.manufacturers.data.length > 0 &&
                   data.vehicle.data.attributes.manufacturers.data.map(
                     ({ id, attributes }) => (
@@ -184,7 +186,7 @@ const VehicleDetail = (pass) => {
             {data.vehicle.data.attributes.variants.length === 0 ? (
               <IonItem>
                 <IonLabel className="ion-text-wrap">
-                  mods:&nbsp;
+                  {t("VehicleDetail.mods")}:&nbsp;
                   {data.vehicle.data.attributes.mods.data.length > 0 &&
                     data.vehicle.data.attributes.mods.data.map(
                       ({ id, attributes }) => (
@@ -204,14 +206,17 @@ const VehicleDetail = (pass) => {
             ) : (
               <React.Fragment>
                 {data.vehicle.data.attributes.variants.map(
-                  ({ id, name, mods, dlcs }) => (
+                  ({ id, name, mods }) => (
                     <IonCard key={id}>
                       <IonItem>
                         <IonLabel>{name}</IonLabel>
                       </IonItem>
                       {mods.data.length > 0 && (
                         <IonCardContent>
-                          <IonLabel className="ion-text-wrap">mods:</IonLabel>
+                          <IonLabel className="ion-text-wrap">
+                            {" "}
+                            {t("VehicleDetail.mods")}:&nbsp;
+                          </IonLabel>
                           {mods.data.map(({ id, attributes }) => (
                             <IonButton
                               key={id}
