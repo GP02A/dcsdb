@@ -14,17 +14,25 @@ import {
   IonIcon,
   IonCard,
   IonCardContent,
+  IonFab,
+  IonFabButton,
+  IonFabList,
 } from "@ionic/react";
 import "./Tab3.css";
 import { useState } from "react";
 import QLatestV from "../queries/QLatestV";
-import { checkmarkOutline, folderOpen, hammer } from "ionicons/icons";
+import {
+  checkmarkOutline,
+  folderOpen,
+  hammer,
+  languageOutline,
+} from "ionicons/icons";
 import QDBstat from "../queries/QDBstat";
 import { useTranslation } from "react-i18next";
 
 const Tab3 = () => {
   const [seg, setSeg] = useState("info");
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <IonPage>
       <IonHeader>
@@ -193,6 +201,19 @@ const Tab3 = () => {
             </IonCard>
           </>
         )}
+        <IonFab slot="fixed" horizontal="end" vertical="bottom">
+          <IonFabButton>
+            <IonIcon icon={languageOutline}></IonIcon>
+          </IonFabButton>
+          <IonFabList side="top">
+            <IonFabButton onClick={() => i18n.changeLanguage("en")}>
+              EN
+            </IonFabButton>
+            <IonFabButton onClick={() => i18n.changeLanguage("zh")}>
+              CN
+            </IonFabButton>
+          </IonFabList>
+        </IonFab>
       </IonContent>
     </IonPage>
   );
