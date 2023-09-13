@@ -110,7 +110,7 @@ const ModDetail = (pass) => {
           <IonList>
             <IonItem>
               <IonLabel className="ion-text-wrap">
-                {t('ModDetail.developer')}&nbsp;
+                {t('ModDetail.developer')}:&nbsp;
                 {data.mod.data.attributes.developers.data.length > 0 &&
                   data.mod.data.attributes.developers.data.map(
                     ({ id, attributes }) => (
