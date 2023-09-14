@@ -1,7 +1,7 @@
 {
-  "name": "dcsdb-frontend",
+  "name": "dcsdb",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -51,5 +51,6 @@
     "vite-plugin-pwa": "^0.16.5",
     "vitest": "^0.29.2"
   },
-  "description": "An Ionic project"
+  "description": "dcsdb-frontend"
+  
 }
