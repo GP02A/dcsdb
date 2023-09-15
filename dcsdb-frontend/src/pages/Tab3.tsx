@@ -41,7 +41,7 @@ const Tab3 = () => {
             value={seg}
             // color="secondary"
             onIonChange={(e) => {
-              console.log("Segment selected", e.detail.value);
+              // console.log("Segment selected", e.detail.value);
               setSeg(e.detail.value);
             }}
           >

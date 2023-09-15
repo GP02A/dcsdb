@@ -6,7 +6,6 @@ const ModsList = (props) => {
   const { t } = useTranslation();
   return (
     <React.Fragment>
-      {console.log(import.meta.env.BASE_URL)}
       {props.mods.map(({ id, attributes }) => (
         <IonItem key={id} routerLink={import.meta.env.BASE_URL + "mod/" + id}>
           <IonLabel>
