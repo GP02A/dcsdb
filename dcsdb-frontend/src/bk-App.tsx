@@ -60,36 +60,36 @@ const App = () => {
         <IonReactRouter>
           <IonTabs>
             <IonRouterOutlet>
-              <Route exact path={import.meta.env.BASE_URL + "/tab1"}>
+              <Route exact path="/tab1">
                 <Tab1 />
               </Route>
-              <Route exact path={import.meta.env.BASE_URL + "/tab2"}>
+              <Route exact path="/tab2">
                 <Tab2 />
               </Route>
-              <Route exact path={import.meta.env.BASE_URL + "/tab3"}>
+              <Route path="/tab3">
                 <Tab3 />
               </Route>
-              <Route path={import.meta.env.BASE_URL + "/mod/:id"} component={ModDetail} />
-              <Route path={import.meta.env.BASE_URL + "/vehicle/:id"} component={VehicleDetail} />
-              <Route path={import.meta.env.BASE_URL + "/developer/:id"} component={DevDetail} />
-              <Route path={import.meta.env.BASE_URL + "/nation/:id"} component={NationDetail} />
+              <Route path="/mod/:id" component={ModDetail} />
+              <Route path="/vehicle/:id" component={VehicleDetail} />
+              <Route path="/developer/:id" component={DevDetail} />
+              <Route path="/nation/:id" component={NationDetail} />
               <Route exact path="/">
-                <Redirect to={import.meta.env.BASE_URL + "/tab1"} />
+                <Redirect to="/tab1" />
               </Route>
               <Route>
-                <Redirect to={import.meta.env.BASE_URL + "/tab1"} />
+                <Redirect to="/tab1" />
               </Route>
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
-              <IonTabButton tab="tab1" href={import.meta.env.BASE_URL + "/tab1"}>
+              <IonTabButton tab="tab1" href="/tab1">
                 <IonIcon aria-hidden="true" icon={gameControllerOutline} />
                 <IonLabel>{t("App.tab1")}</IonLabel>
               </IonTabButton>
-              <IonTabButton tab="tab2" href={import.meta.env.BASE_URL + "/tab2"}>
+              <IonTabButton tab="tab2" href="/tab2">
                 <IonIcon aria-hidden="true" icon={airplaneOutline} />
                 <IonLabel>{t("App.tab2")}</IonLabel>
               </IonTabButton>
-              <IonTabButton tab="tab3" href={import.meta.env.BASE_URL + "/tab3"}>
+              <IonTabButton tab="tab3" href="/tab3">
                 <IonIcon aria-hidden="true" icon={informationCircleOutline} />
                 <IonLabel>{t("App.tab3")}</IonLabel>
               </IonTabButton>

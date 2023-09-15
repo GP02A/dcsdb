@@ -7,7 +7,7 @@ const ModsList = (props) => {
   return (
     <React.Fragment>
       {props.mods.map(({ id, attributes }) => (
-        <IonItem key={id} routerLink={import.meta.env.BASE_URL + "/mod/" + id}>
+        <IonItem key={id} routerLink={"/mod/" + id}>
           <IonLabel>
             <h3 className="ion-text-wrap">{attributes.name}</h3>
             {attributes.developers && attributes.developers.data.length > 0 && (

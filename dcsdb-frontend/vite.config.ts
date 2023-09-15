@@ -7,7 +7,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 // https://vitejs.dev/config/
 export default defineConfig({
   //use base to setup pwa at subdirectory
-  // base: '/pwa/dcsdb',
+  // base : 'pwa/dcsdb/',
   plugins: [
     react(),
     legacy(),

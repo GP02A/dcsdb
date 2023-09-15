@@ -13,7 +13,7 @@ const vehiclesList = (props) => {
   return (
     <React.Fragment>
       {props.vehicles.map(({ id, attributes }) => (
-        <IonItem key={id} routerLink={import.meta.env.BASE_URL + "/vehicle/" + id}>
+        <IonItem key={id} routerLink={"/vehicle/" + id}>
           <IonThumbnail slot="start">
             {attributes.cover === null ? (
               <div>NA</div>

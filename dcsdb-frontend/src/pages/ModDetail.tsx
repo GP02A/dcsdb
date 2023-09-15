@@ -117,7 +117,7 @@ const ModDetail = (pass) => {
                       <IonButton
                         key={id}
                         fill="outline"
-                        routerLink={"/developer/" + id}
+                        routerLink={import.meta.env.BASE_URL + "developer/" + id}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -157,7 +157,7 @@ const ModDetail = (pass) => {
                       <IonButton
                         key={id}
                         fill="outline"
-                        routerLink={"/vehicle/" + id}
+                        routerLink={import.meta.env.BASE_URL + "vehicle/" + id}
                         target="_blank"
                         rel="noopener noreferrer"
                       >

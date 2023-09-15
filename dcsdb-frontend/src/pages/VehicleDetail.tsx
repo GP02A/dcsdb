@@ -161,7 +161,7 @@ const VehicleDetail = (pass) => {
                       <IonButton
                         key={id}
                         fill="outline"
-                        routerLink={"/nation/" + id}
+                        routerLink={import.meta.env.BASE_URL + "nation/" + id}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -193,7 +193,7 @@ const VehicleDetail = (pass) => {
                         <IonButton
                           key={id}
                           fill="outline"
-                          routerLink={"/mod/" + id}
+                          routerLink={import.meta.env.BASE_URL + "mod/" + id}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -221,7 +221,7 @@ const VehicleDetail = (pass) => {
                             <IonButton
                               key={id}
                               fill="outline"
-                              routerLink={"/mod/" + id}
+                              routerLink={import.meta.env.BASE_URL + "mod/" + id}
                               target="_blank"
                               rel="noopener noreferrer"
                             >
