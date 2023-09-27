@@ -22,7 +22,7 @@ const DEV = gql`
         attributes {
           name
           hp
-          mods {
+          mods (pagination: { limit: 50 }, sort: "id:desc") {
             data {
               id
               attributes {

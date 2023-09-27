@@ -11,6 +11,9 @@ const SEARCH_MODS = gql`
         or: [
           { name: { contains: $st } }
           { vehicles: { name: { contains: $st } } }
+          { vehicles: { alias: { contains: $st } } }
+          { vehicles: { variants: { name: { contains: $st } } } }
+          { vehicles: { variants: { alias: { contains: $st } } } }
         ]
       }
     ) {
@@ -71,7 +74,7 @@ const QCmods = (props) => {
     // console.log(data.ips);
     return (
       <p className="ion-margin ion-text-center" color="warning">
-        {t('QCmods.noresult')}
+        {t("QCmods.noresult")}
       </p>
     );
   } else {

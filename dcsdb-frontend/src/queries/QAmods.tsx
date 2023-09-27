@@ -5,7 +5,7 @@ import ErrorMsg from "../components/ErrorMsg";
 
 const SEARCH_MODS = gql`
   query MODS {
-    mods(pagination: { limit: 20 }) {
+    mods(pagination: { limit: 20 } ,sort: "id:desc") {
       data {
         id
         attributes {

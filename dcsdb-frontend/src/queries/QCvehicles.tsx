@@ -6,7 +6,16 @@ import { useTranslation } from "react-i18next";
 
 const SEARCH_VEHICLES = gql`
   query VEHICLES($st: String!) {
-    vehicles(filters: { name: { contains: $st } }) {
+    vehicles(
+      filters: {
+        or: [
+          { name: { contains: $st } }
+          { alias: { contains: $st } }
+          { variants: { name: { contains: $st } } }
+          { variants: { alias: { contains: $st } } }
+        ]
+      }
+    ) {
       data {
         id
         attributes {
@@ -71,7 +80,7 @@ const QCvehicles = (props) => {
     // console.log(data.ips);
     return (
       <p className="ion-margin ion-text-center" color="warning">
-        {t('QCvehicles.noresult')}
+        {t("QCvehicles.noresult")}
       </p>
     );
   } else {

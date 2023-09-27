@@ -84,6 +84,19 @@
         "ai only",
         "static"
       ]
+    },
+    "mods": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mod.mod"
+    },
+    "note": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
     }
   }
 }

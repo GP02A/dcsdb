@@ -5,7 +5,7 @@ import ErrorMsg from "../components/ErrorMsg";
 
 const SEARCH_VEHICLES = gql`
   query VEHICLES {
-    vehicles(pagination: { limit: 20 }) {
+    vehicles(pagination: { limit: 20 }, sort: "id:desc") {
       data {
         id
         attributes {
