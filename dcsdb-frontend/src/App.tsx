@@ -22,7 +22,7 @@ import ModDetail from "./pages/ModDetail";
 import DevDetail from "./pages/DevDetail";
 import VehicleDetail from "./pages/VehicleDetail";
 import NationDetail from "./pages/NationDetail";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider ,createHttpLink,} from "@apollo/client";
 import { useTranslation } from "react-i18next";
 
 /* Core CSS required for Ionic components to work properly */
@@ -44,12 +44,27 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 
-const client = new ApolloClient({
-  // uri: 'http://localhost:1337/graphql',
+import { setContext } from '@apollo/client/link/context';
+const httpLink = createHttpLink({
   uri: import.meta.env.VITE_APOLLO_CLIENT,
-  cache: new InMemoryCache(),
+});
+const authLink = setContext((_, { headers }) => {
+  const token = import.meta.env.VITE_TOKEN;
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    }
+  }
 });
 
+
+const client = new ApolloClient({
+  // uri: 'http://localhost:1337/graphql',
+  // uri: import.meta.env.VITE_APOLLO_CLIENT,
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 setupIonicReact();
 
 const App = () => {

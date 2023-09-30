@@ -31,6 +31,16 @@
         }
       },
       "type": "string"
+    },
+    "DevNotes": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "base.dev-notes"
     }
   }
 }

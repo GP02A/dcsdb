@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_base_dev_notes",
+  "info": {
+    "displayName": "Dev notes",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    }
+  }
+}

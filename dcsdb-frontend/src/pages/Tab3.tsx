@@ -20,7 +20,7 @@ import {
 } from "@ionic/react";
 import "./Tab3.css";
 import { useState } from "react";
-import QLatestV from "../queries/QLatestV";
+
 import {
   checkmarkOutline,
   folderOpen,
@@ -28,6 +28,8 @@ import {
   languageOutline,
 } from "ionicons/icons";
 import QDBstat from "../queries/QDBstat";
+import QLatestV from "../queries/QLatestV";
+import QDevNotes from "../queries/QDevnotes";
 import { useTranslation } from "react-i18next";
 
 const Tab3 = () => {
@@ -95,6 +97,7 @@ const Tab3 = () => {
                 </IonLabel>
               </IonItem>
             </IonList>
+            <QDevNotes/>
           </>
         )}
         {seg === "progress" && (
