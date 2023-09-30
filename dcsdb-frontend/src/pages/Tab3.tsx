@@ -29,7 +29,7 @@ import {
 } from "ionicons/icons";
 import QDBstat from "../queries/QDBstat";
 import QLatestV from "../queries/QLatestV";
-import QDevNotes from "../queries/QDevnotes";
+import QDevNotes from "../queries/QDevNotes";
 import { useTranslation } from "react-i18next";
 
 const Tab3 = () => {
