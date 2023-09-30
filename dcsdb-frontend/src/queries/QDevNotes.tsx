@@ -34,7 +34,6 @@ const QDevNotes = () => {
   // if (loading) return <p>loading...</p>;
   if (error) return <ErrorMsg />;
   // if (error) return <p>Error :(</p>;
-  console.log(data);
   return (
     <IonList>
       {data.appInfo.data.attributes.DevNotes.map(({ title, body, id }) => (
