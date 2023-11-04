@@ -5,7 +5,7 @@ import ErrorMsg from "../components/ErrorMsg";
 import { useTranslation } from "react-i18next";
 
 const SEARCH_MODS = gql`
-  query MODS($st: String!) {
+  query MODS($st: String!, $lng: I18NLocaleCode) {
     mods(
       filters: {
         or: [
@@ -16,6 +16,9 @@ const SEARCH_MODS = gql`
           { vehicles: { variants: { alias: { contains: $st } } } }
         ]
       }
+      pagination: { limit: 20 }
+      sort: "id:desc"
+      locale: $lng
     ) {
       data {
         id
@@ -61,9 +64,9 @@ const SEARCH_MODS = gql`
 `;
 
 const QCmods = (props) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { loading, error, data } = useQuery(SEARCH_MODS, {
-    variables: { st: props.searchText },
+    variables: { st: props.searchText, lng: i18n.resolvedLanguage },
   });
 
   if (loading) return <LoadingMsg />;

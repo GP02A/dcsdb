@@ -30,6 +30,7 @@ import {
 import QDBstat from "../queries/QDBstat";
 import QLatestV from "../queries/QLatestV";
 import QDevNotes from "../queries/QDevNotes";
+import Lngswitcher from "../components/LngSwitcher";
 import { useTranslation } from "react-i18next";
 
 const Tab3 = () => {
@@ -97,7 +98,7 @@ const Tab3 = () => {
                 </IonLabel>
               </IonItem>
             </IonList>
-            <QDevNotes/>
+            <QDevNotes />
           </>
         )}
         {seg === "progress" && (
@@ -204,19 +205,26 @@ const Tab3 = () => {
             </IonCard>
           </>
         )}
-        <IonFab slot="fixed" horizontal="end" vertical="bottom">
+        <Lngswitcher/>
+        {/* <IonFab slot="fixed" horizontal="end" vertical="bottom">
           <IonFabButton>
             <IonIcon icon={languageOutline}></IonIcon>
           </IonFabButton>
           <IonFabList side="top">
-            <IonFabButton onClick={() => i18n.changeLanguage("en")}>
+            <IonFabButton
+              color={i18n.resolvedLanguage === "en" ? "primary" : ""}
+              onClick={() => i18n.changeLanguage("en")}
+            >
               EN
             </IonFabButton>
-            <IonFabButton onClick={() => i18n.changeLanguage("zh")}>
+            <IonFabButton
+              color={i18n.resolvedLanguage === "zh" ? "primary" : ""}
+              onClick={() => i18n.changeLanguage("zh")}
+            >
               CN
             </IonFabButton>
           </IonFabList>
-        </IonFab>
+        </IonFab> */}
       </IonContent>
     </IonPage>
   );

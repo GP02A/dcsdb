@@ -8,15 +8,15 @@ import {
   IonCardTitle,
   IonCardContent,
 } from "@ionic/react";
+import { useTranslation } from "react-i18next";
 
 const DN = gql`
-  query DN {
-    appInfo {
+  query DN($lng: I18NLocaleCode) {
+    appInfo(locale: $lng) {
       data {
         id
         attributes {
-            LatestVersion
-          DevNotes {
+          DevNotes(pagination: { limit: 10 }, sort: "id:desc") {
             id
             title
             body
@@ -28,7 +28,10 @@ const DN = gql`
 `;
 
 const QDevNotes = () => {
-  const { loading, error, data } = useQuery(DN);
+  const { i18n } = useTranslation();
+  const { loading, error, data } = useQuery(DN, {
+    variables: { lng: i18n.resolvedLanguage },
+  });
 
   if (loading) return <LoadingMsg />;
   // if (loading) return <p>loading...</p>;

@@ -97,6 +97,25 @@
         }
       },
       "type": "text"
+    },
+    "name_cn": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "unique": false,
+      "required": false
+    },
+    "note_cn": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": false
     }
   }
 }

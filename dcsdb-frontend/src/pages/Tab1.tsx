@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Tab1Switcher from '../components/Tab1Switcher';
 import './Tab1.css';
 import { useTranslation } from "react-i18next";
+import Lngswitcher from '../components/LngSwitcher';
 
 const Tab1 = () => {
   const [showAlert, setShowAlert] = useState(false);
@@ -55,6 +56,7 @@ const Tab1 = () => {
           </IonToolbar>
         </IonHeader> */}
         <Tab1Switcher searchTextPass={searchTextPass}></Tab1Switcher>
+        <Lngswitcher/>
         <IonAlert
           isOpen={showAlert}
           onDidDismiss={() => setShowAlert(false)}

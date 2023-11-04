@@ -5,7 +5,7 @@ import ErrorMsg from "../components/ErrorMsg";
 import { useTranslation } from "react-i18next";
 
 const SEARCH_VEHICLES = gql`
-  query VEHICLES($st: String!) {
+  query VEHICLES($st: String!, $lng: I18NLocaleCode) {
     vehicles(
       filters: {
         or: [
@@ -15,6 +15,9 @@ const SEARCH_VEHICLES = gql`
           { variants: { alias: { contains: $st } } }
         ]
       }
+      pagination: { limit: 20 }
+      sort: "id:desc"
+      locale: $lng
     ) {
       data {
         id
@@ -67,9 +70,9 @@ const SEARCH_VEHICLES = gql`
 `;
 
 const QCvehicles = (props) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { loading, error, data } = useQuery(SEARCH_VEHICLES, {
-    variables: { st: props.searchText },
+    variables: { st: props.searchText, lng: i18n.resolvedLanguage  },
   });
 
   if (loading) return <LoadingMsg />;

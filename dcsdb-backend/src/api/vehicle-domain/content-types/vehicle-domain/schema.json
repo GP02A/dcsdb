@@ -29,6 +29,14 @@
       "relation": "manyToMany",
       "target": "api::vehicle.vehicle",
       "inversedBy": "vehicle_domains"
+    },
+    "name_cn": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

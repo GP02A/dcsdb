@@ -21,6 +21,9 @@
     },
     "alias": {
       "type": "string"
+    },
+    "name_cn": {
+      "type": "string"
     }
   }
 }

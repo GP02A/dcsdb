@@ -4,7 +4,8 @@
   "info": {
     "singularName": "utility",
     "pluralName": "utilities",
-    "displayName": "Utility"
+    "displayName": "Utility",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

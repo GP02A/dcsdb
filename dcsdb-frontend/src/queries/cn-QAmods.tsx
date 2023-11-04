@@ -2,11 +2,10 @@ import { useQuery, gql } from "@apollo/client";
 import ModsList from "../components/ModsList";
 import LoadingMsg from "../components/LoadingMsg";
 import ErrorMsg from "../components/ErrorMsg";
-import { useTranslation } from "react-i18next";
 
 const SEARCH_MODS = gql`
-  query MODS($lng: I18NLocaleCode)  {
-    mods(pagination: { limit: 20 } ,sort: "id:desc", locale:$lng) {
+  query MODS {
+    mods(pagination: { limit: 20 } ,sort: "id:desc") {
       data {
         id
         attributes {
@@ -51,10 +50,7 @@ const SEARCH_MODS = gql`
 `;
 
 const QAmods = () => {
-  const { i18n } = useTranslation();
-  const { loading, error, data } = useQuery(SEARCH_MODS, {
-    variables: { lng: i18n.resolvedLanguage },
-  });
+  const { loading, error, data } = useQuery(SEARCH_MODS);
   if (loading) return <LoadingMsg />;
   if (error) return <ErrorMsg />;
   return <ModsList mods={data.mods.data} />;

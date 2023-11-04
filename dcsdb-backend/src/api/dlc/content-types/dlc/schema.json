@@ -4,7 +4,8 @@
   "info": {
     "singularName": "dlc",
     "pluralName": "dlcs",
-    "displayName": "DLC"
+    "displayName": "DLC",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

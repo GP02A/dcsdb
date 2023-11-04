@@ -37,6 +37,23 @@
       "relation": "manyToMany",
       "target": "api::vehicle.vehicle",
       "mappedBy": "national_origin"
+    },
+    "name_cn": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": false
+    },
+    "wiki": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

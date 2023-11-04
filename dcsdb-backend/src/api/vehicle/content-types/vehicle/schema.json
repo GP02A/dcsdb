@@ -87,6 +87,22 @@
       "relation": "manyToMany",
       "target": "api::vehicle-domain.vehicle-domain",
       "mappedBy": "vehicles"
+    },
+    "name_cn": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "wiki": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
