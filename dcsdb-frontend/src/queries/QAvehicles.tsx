@@ -24,6 +24,7 @@ const SEARCH_VEHICLES = gql`
             data {
               id
               attributes {
+                id: mid
                 name
                 displayname
               }
@@ -32,6 +33,7 @@ const SEARCH_VEHICLES = gql`
           manufacturers {
             data {
               attributes {
+                id: mid
                 name
               }
             }
@@ -40,6 +42,7 @@ const SEARCH_VEHICLES = gql`
             data {
               id
               attributes {
+                id: mid
                 name
               }
             }

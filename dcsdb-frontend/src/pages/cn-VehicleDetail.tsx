@@ -130,7 +130,7 @@ const VehicleDetail = (pass) => {
           </IonToolbar>
         </IonHeader>
         <IonCard>
-          {data.vehicle.data.attributes.cover === null ? null : (
+          {data.vehicle.data.attributes.cover.data === null ? null : (
             <IonImg
               src={
                 import.meta.env.VITE_BACKEND +
@@ -266,7 +266,7 @@ const VehicleDetail = (pass) => {
         {/* <IonList>
           <IonItem>
             <IonThumbnail slot="start">
-              {data.vehicle.data.attributes.cover === null ? (
+              {data.vehicle.data.attributes.cover.data === null ? (
                 <div>暂缺</div>
               ) : (
                 <IonImg

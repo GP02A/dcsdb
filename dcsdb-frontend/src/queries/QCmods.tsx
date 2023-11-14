@@ -23,11 +23,13 @@ const SEARCH_MODS = gql`
       data {
         id
         attributes {
+          id: mid
           name
           developers {
             data {
               id
               attributes {
+                id: mid
                 name
               }
             }
@@ -37,6 +39,7 @@ const SEARCH_MODS = gql`
             data {
               id
               attributes {
+                id: mid
                 name
               }
             }
@@ -45,6 +48,7 @@ const SEARCH_MODS = gql`
             data {
               id
               attributes {
+                id: mid
                 name
               }
             }
@@ -53,6 +57,7 @@ const SEARCH_MODS = gql`
             data {
               id
               attributes {
+                id: mid
                 name
               }
             }

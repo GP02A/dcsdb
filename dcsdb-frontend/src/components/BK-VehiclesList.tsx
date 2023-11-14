@@ -15,7 +15,7 @@ const vehiclesList = (props) => {
       {props.vehicles.map(({ id, attributes }) => (
         <IonItem key={id} routerLink={"/vehicle/" + id}>
           <IonThumbnail slot="start">
-            {attributes.cover === null ? (
+            {attributes.cover.data === null ? (
               <div>NA</div>
             ) : (
               <IonImg

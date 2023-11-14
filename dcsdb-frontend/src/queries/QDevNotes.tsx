@@ -16,6 +16,7 @@ const DN = gql`
       data {
         id
         attributes {
+          id: mid
           DevNotes(pagination: { limit: 10 }, sort: "id:desc") {
             id
             title

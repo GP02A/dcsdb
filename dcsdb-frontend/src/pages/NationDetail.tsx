@@ -19,11 +19,13 @@ const NATION = gql`
       data {
         id
         attributes {
+          id: mid
           name
           vehicles (pagination: { limit: 50 }, sort: "id:desc") {
             data {
               id
               attributes {
+                id: mid
                 name
                 cover {
                   data {

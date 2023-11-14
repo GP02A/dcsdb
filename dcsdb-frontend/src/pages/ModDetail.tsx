@@ -26,6 +26,7 @@ const MOD = gql`
       data {
         id
         attributes {
+          id: mid
           name
           info_page
           download_links {
@@ -35,6 +36,7 @@ const MOD = gql`
               data {
                 id
                 attributes {
+                  id: mid
                   name
                 }
               }
@@ -45,6 +47,7 @@ const MOD = gql`
             data {
               id
               attributes {
+                id: mid
                 name
               }
             }
@@ -53,6 +56,7 @@ const MOD = gql`
             data {
               id
               attributes {
+                id: mid
                 name
               }
             }
@@ -61,6 +65,7 @@ const MOD = gql`
             data {
               id
               attributes {
+                id: mid
                 name
               }
             }
@@ -69,6 +74,7 @@ const MOD = gql`
             data {
               id
               attributes {
+                id: mid
                 name
               }
             }

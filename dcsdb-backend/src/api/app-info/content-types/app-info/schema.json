@@ -41,6 +41,15 @@
         }
       },
       "component": "base.dev-notes"
+    },
+    "mid": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer",
+      "required": true
     }
   }
 }

@@ -9,6 +9,7 @@ const LV = gql`
       data{
         id
         attributes{
+          id: mid
           LatestVersion
           LVLink
         }

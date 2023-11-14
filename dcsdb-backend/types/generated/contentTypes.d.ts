@@ -712,6 +712,13 @@ export interface ApiAppInfoAppInfo extends Schema.SingleType {
           localized: true;
         };
       }>;
+    mid: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

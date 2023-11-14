@@ -1,8 +1,8 @@
-import React from 'react';
+// import React from 'react';
 import { IonText } from '@ionic/react';
 import { useTranslation } from "react-i18next";
 
-const Error: React.FC = () => {
+const ErrorMsg = () => {
   const { t } = useTranslation();
   return (
     <p className="ion-margin ion-text-center">
@@ -11,4 +11,4 @@ const Error: React.FC = () => {
   );
 };
 
-export default Error;
+export default ErrorMsg;
