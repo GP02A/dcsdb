@@ -116,6 +116,15 @@
       },
       "type": "text",
       "required": false
+    },
+    "mid": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer",
+      "required": true
     }
   }
 }

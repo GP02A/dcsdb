@@ -775,6 +775,13 @@ export interface ApiDeveloperDeveloper extends Schema.CollectionType {
       'manyToMany',
       'api::dlc.dlc'
     >;
+    mid: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -850,6 +857,13 @@ export interface ApiDlcDlc extends Schema.CollectionType {
       }> &
       Attribute.DefaultTo<false>;
     mods: Attribute.Relation<'api::dlc.dlc', 'manyToMany', 'api::mod.mod'>;
+    mid: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -905,6 +919,13 @@ export interface ApiEnvironmentEnvironment extends Schema.CollectionType {
       'manyToMany',
       'api::dlc.dlc'
     >;
+    mid: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -973,6 +994,13 @@ export interface ApiManufacturerManufacturer extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    mid: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1080,6 +1108,13 @@ export interface ApiModMod extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    mid: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1142,6 +1177,13 @@ export interface ApiNationNation extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    mid: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1193,6 +1235,13 @@ export interface ApiPlatformPlatform extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    mid: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1258,6 +1307,13 @@ export interface ApiUtilityUtility extends Schema.CollectionType {
       'manyToMany',
       'api::dlc.dlc'
     >;
+    mid: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1360,6 +1416,13 @@ export interface ApiVehicleVehicle extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    mid: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1416,6 +1479,13 @@ export interface ApiVehicleDomainVehicleDomain extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    mid: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;

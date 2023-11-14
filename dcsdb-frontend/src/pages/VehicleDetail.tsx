@@ -70,6 +70,7 @@ const VEHICLE = gql`
               }
             }
           }
+          wiki
           variants {
             name
             id
@@ -214,7 +215,6 @@ const VehicleDetail = (pass) => {
                       {mods.data.length > 0 && (
                         <IonCardContent>
                           <IonLabel className="ion-text-wrap">
-                            {" "}
                             {t("VehicleDetail.mods")}:&nbsp;
                           </IonLabel>
                           {mods.data.map(({ id, attributes }) => (
@@ -237,6 +237,16 @@ const VehicleDetail = (pass) => {
             )}
           </IonList>
         </IonCard>
+        {data.vehicle.data.attributes.wiki && (
+          <IonButton
+            expand="block"
+            href={data.vehicle.data.attributes.wiki}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t('VehicleDetail.wiki')}
+          </IonButton>
+        )}
         {/* <IonList>
           <IonItem>
             <IonThumbnail slot="start">

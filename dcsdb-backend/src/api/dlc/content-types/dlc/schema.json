@@ -62,6 +62,15 @@
       "relation": "manyToMany",
       "target": "api::mod.mod",
       "inversedBy": "dlcs"
+    },
+    "mid": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "type": "integer"
     }
   }
 }

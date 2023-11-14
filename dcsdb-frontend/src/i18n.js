@@ -114,10 +114,11 @@ i18n
             vehicles:"Vehicles",
           },
           VehicleDetail:{
-            domain:"Domain",
+            domain:"Environment",
             origin:"National Origin",
             manufacturers:"Manufacturers",
-            mods:"Mods"
+            mods:"Mods",
+            wiki:"Wiki",
           }
         },
       },
@@ -218,10 +219,11 @@ i18n
             vehicles:"载具",
           },
           VehicleDetail:{
-            domain:"领域",
+            domain:"环境",
             origin:"起源国",
             manufacturers:"制造商",
-            mods:"模组"
+            mods:"模组",
+            wiki:"百科",
           }
         },
       },

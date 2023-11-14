@@ -43,6 +43,15 @@
       "relation": "manyToMany",
       "target": "api::dlc.dlc",
       "mappedBy": "developers"
+    },
+    "mid": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer",
+      "required": true
     }
   }
 }

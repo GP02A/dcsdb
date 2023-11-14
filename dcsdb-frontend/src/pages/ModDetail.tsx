@@ -73,6 +73,7 @@ const MOD = gql`
               }
             }
           }
+          note
         }
       }
     }
@@ -110,14 +111,16 @@ const ModDetail = (pass) => {
           <IonList>
             <IonItem>
               <IonLabel className="ion-text-wrap">
-                {t('ModDetail.developer')}:&nbsp;
+                {t("ModDetail.developer")}:&nbsp;
                 {data.mod.data.attributes.developers.data.length > 0 &&
                   data.mod.data.attributes.developers.data.map(
                     ({ id, attributes }) => (
                       <IonButton
                         key={id}
                         fill="outline"
-                        routerLink={import.meta.env.BASE_URL + "developer/" + id}
+                        routerLink={
+                          import.meta.env.BASE_URL + "developer/" + id
+                        }
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -129,12 +132,13 @@ const ModDetail = (pass) => {
             </IonItem>
             <IonItem>
               <IonLabel className="ion-text-wrap">
-              {t('ModDetail.gamestatus')}:&nbsp;{data.mod.data.attributes.game_status}
+                {t("ModDetail.gamestatus")}:&nbsp;
+                {data.mod.data.attributes.game_status}
               </IonLabel>
             </IonItem>
             <IonItem>
               <IonLabel className="ion-text-wrap">
-              {t('ModDetail.dlc')}:&nbsp;
+                {t("ModDetail.dlc")}:&nbsp;
                 {data.mod.data.attributes.dlcs.data.length > 0 ? (
                   data.mod.data.attributes.dlcs.data.map(
                     ({ id, attributes }) => (
@@ -144,14 +148,14 @@ const ModDetail = (pass) => {
                     )
                   )
                 ) : (
-                  <span>{t('ModDetail.nodlc')}</span>
+                  <span>{t("ModDetail.nodlc")}</span>
                 )}
               </IonLabel>
             </IonItem>
             {data.mod.data.attributes.vehicles.data.length > 0 && (
               <IonItem>
                 <IonLabel className="ion-text-wrap">
-                {t('ModDetail.vehicles')}:&nbsp;
+                  {t("ModDetail.vehicles")}:&nbsp;
                   {data.mod.data.attributes.vehicles.data.map(
                     ({ id, attributes }) => (
                       <IonButton
@@ -168,16 +172,26 @@ const ModDetail = (pass) => {
                 </IonLabel>
               </IonItem>
             )}
+            {data.mod.data.attributes.note && (
+              <IonItem>
+                <IonLabel className="ion-text-wrap">
+                  {t("ModDetail.note")}:&nbsp;
+                  {data.mod.data.attributes.note}
+                </IonLabel>
+              </IonItem>
+            )}
             <IonCard>
               <IonItem
                 href={data.mod.data.attributes.info_page}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <IonLabel>{t('ModDetail.infopage')}</IonLabel>
+                <IonLabel>{t("ModDetail.infopage")}</IonLabel>
               </IonItem>
               <IonCardContent>
-                <IonLabel className="ion-text-wrap">{t('ModDetail.dlink')}:</IonLabel>
+                <IonLabel className="ion-text-wrap">
+                  {t("ModDetail.dlink")}:
+                </IonLabel>
                 {data.mod.data.attributes.download_links.map(
                   ({ id, url, platform }) => (
                     <IonButton

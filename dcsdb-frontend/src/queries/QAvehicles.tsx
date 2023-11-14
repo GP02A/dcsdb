@@ -10,6 +10,7 @@ const SEARCH_VEHICLES = gql`
       data {
         id
         attributes {
+          id: mid
           name
           alias
           cover {
@@ -47,6 +48,7 @@ const SEARCH_VEHICLES = gql`
             data {
               id
               attributes {
+                id: mid
                 name
               }
             }

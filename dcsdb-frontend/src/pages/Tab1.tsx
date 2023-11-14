@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonToolbar, IonSearchbar, IonButton, IonIcon, IonAlert, IonProgressBar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonSearchbar, IonButton, IonIcon, IonAlert } from '@ionic/react';
 import { checkmarkOutline } from 'ionicons/icons';
 import { useState } from 'react';
 import Tab1Switcher from '../components/Tab1Switcher';
@@ -18,9 +18,7 @@ const Tab1 = () => {
           onSubmit={(e) => {
             e.preventDefault();
             if (searchText !== '') {
-              // searchTextPass = searchText;
               setSearchTextPass(searchText);
-              // searchIp({ variables: { st: searchText } });
             } else {
               setShowAlert(true);
               setSearchTextPass(searchText);
@@ -32,12 +30,8 @@ const Tab1 = () => {
               value={searchText!}
               onIonInput={(e) => {
                 setSearchText(e.detail.value);
-                // setShowAll(true);
               }}
               placeholder={t('Tab1.searchhint')}
-              // onIonClear={() => {
-              //   console.log('clear');
-              // }}
             ></IonSearchbar>
             <IonButton
               fill="outline"
@@ -61,8 +55,6 @@ const Tab1 = () => {
           isOpen={showAlert}
           onDidDismiss={() => setShowAlert(false)}
           cssClass="my-custom-class"
-          // header={'Alert'}
-          // subHeader={'Subtitle'}
           message={t('Tab1.blanksearchalert')}
           buttons={[t('Tab1.blanksearchalertclose')]}
         />

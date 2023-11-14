@@ -5,11 +5,12 @@ import ErrorMsg from "../components/ErrorMsg";
 import { useTranslation } from "react-i18next";
 
 const SEARCH_MODS = gql`
-  query MODS($lng: I18NLocaleCode)  {
-    mods(pagination: { limit: 20 } ,sort: "id:desc", locale:$lng) {
+  query MODS($lng: I18NLocaleCode) {
+    mods(pagination: { limit: 20 }, sort: "id:desc", locale: $lng) {
       data {
         id
         attributes {
+          id: mid
           name
           developers {
             data {
@@ -32,6 +33,7 @@ const SEARCH_MODS = gql`
             data {
               id
               attributes {
+                id: mid
                 name
               }
             }
