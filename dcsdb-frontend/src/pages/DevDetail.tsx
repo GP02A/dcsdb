@@ -23,7 +23,7 @@ const DEV = gql`
           id: mid
           name
           hp
-          mods (pagination: { limit: 50 }, sort: "id:desc") {
+          mods(pagination: { limit: 50 }, sort: "id:desc") {
             data {
               id
               attributes {
@@ -81,11 +81,11 @@ const DevDetail = (pass) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {t('DevDetail.hp')}
+            {t("DevDetail.hp")}
           </IonButton>
         )}
         <IonItemGroup>
-          <IonItemDivider>{t('DevDetail.mods')}</IonItemDivider>
+          <IonItemDivider>{t("DevDetail.mods")}</IonItemDivider>
           <ModsList mods={data.developer.data.attributes.mods.data} />
         </IonItemGroup>
       </IonContent>

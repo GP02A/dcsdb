@@ -66,7 +66,7 @@ const VEHICLE = gql`
               }
             }
           }
-          mods {
+          mods(pagination: { limit: 50 }, sort: "id:desc") {
             data {
               id
               attributes {
@@ -228,7 +228,9 @@ const VehicleDetail = (pass) => {
                             <IonButton
                               key={id}
                               fill="outline"
-                              routerLink={import.meta.env.BASE_URL + "mod/" + id}
+                              routerLink={
+                                import.meta.env.BASE_URL + "mod/" + id
+                              }
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -251,7 +253,7 @@ const VehicleDetail = (pass) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {t('VehicleDetail.wiki')}
+            {t("VehicleDetail.wiki")}
           </IonButton>
         )}
         {/* <IonList>

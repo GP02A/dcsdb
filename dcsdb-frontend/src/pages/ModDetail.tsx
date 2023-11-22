@@ -52,7 +52,7 @@ const MOD = gql`
               }
             }
           }
-          vehicles {
+          vehicles(pagination: { limit: 50 }, sort: "id:desc") {
             data {
               id
               attributes {

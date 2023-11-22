@@ -21,7 +21,7 @@ const NATION = gql`
         attributes {
           id: mid
           name
-          vehicles (pagination: { limit: 50 }, sort: "id:desc") {
+          vehicles(pagination: { limit: 100 }, sort: "id:desc") {
             data {
               id
               attributes {
@@ -69,7 +69,7 @@ const NationDetail = (pass) => {
         </IonHeader>
 
         <IonItemGroup>
-          <IonItemDivider>{t('NationDetail.vehicles')}</IonItemDivider>
+          <IonItemDivider>{t("NationDetail.vehicles")}</IonItemDivider>
           <VehiclesList vehicles={data.nation.data.attributes.vehicles.data} />
         </IonItemGroup>
       </IonContent>
