@@ -25,6 +25,10 @@ i18n
             tab2: "Vehicles",
             tab3: "Info",
           },
+          InfiniteScroll: {
+            loadingtext: "Loading more data...",
+            button: "Back to Start"
+          },
           Tab1: {
             searchhint: "Search mods",
             blanksearchalert: "Please enter a search term!",
@@ -78,48 +82,48 @@ i18n
             noresult: "Can't find any vehicles with this name",
           },
           ErrorMsg: "Error :(",
-          LoadingMsg:{
-            p1:"Loading...",
-            p2:"If it take forever to load, the server might be offline atm.....ORZ",
+          LoadingMsg: {
+            p1: "Loading...",
+            p2: "If it take forever to load, the server might be offline atm.....ORZ",
           },
-          Lists:{
+          Lists: {
             nation: "Nation",
             developer: "Developer",
-            dlc:"DLC",
+            dlc: "DLC",
           },
-          Loading:{
-            header:"Loading...",
-            p1:"Loading...",
-            p2:"If it take forever to load, the server might be offline atm.....ORZ",
+          Loading: {
+            header: "Loading...",
+            p1: "Loading...",
+            p2: "If it take forever to load, the server might be offline atm.....ORZ",
           },
-          Error:{
-            header:"Error",
-            p1:"Error :(",
+          Error: {
+            header: "Error",
+            p1: "Error :(",
           },
-          DevDetail:{
-            hp:"Home Page",
-            mods:"Mods"
+          DevDetail: {
+            hp: "Home Page",
+            mods: "Mods",
           },
-          ModDetail:{
-            developer:"Developer",
-            gamestatus:"Game Status",
-            dlc:"DLC",
-            nodlc:"none",
-            note:"Note",
-            vehicles:"Vehicles",
-            infopage:"Info Page",
-            dlink:"download links",
+          ModDetail: {
+            developer: "Developer",
+            gamestatus: "Game Status",
+            dlc: "DLC",
+            nodlc: "none",
+            note: "Note",
+            vehicles: "Vehicles",
+            infopage: "Info Page",
+            dlink: "download links",
           },
-          NationDetail:{
-            vehicles:"Vehicles",
+          NationDetail: {
+            vehicles: "Vehicles",
           },
-          VehicleDetail:{
-            domain:"Environment",
-            origin:"National Origin",
-            manufacturers:"Manufacturers",
-            mods:"Mods",
-            wiki:"Wiki",
-          }
+          VehicleDetail: {
+            domain: "Environment",
+            origin: "National Origin",
+            manufacturers: "Manufacturers",
+            mods: "Mods",
+            wiki: "Wiki",
+          },
         },
       },
       zh: {
@@ -129,6 +133,10 @@ i18n
             tab1: "模组",
             tab2: "载具",
             tab3: "信息",
+          },
+          InfiniteScroll: {
+            loadingtext: "下一组数据载入中...",
+            button: "返回开头"
           },
           Tab1: {
             searchhint: "搜索模组",
@@ -183,48 +191,48 @@ i18n
             noresult: "未找到相关载具",
           },
           ErrorMsg: "出错啦 :(",
-          LoadingMsg:{
-            p1:"加载中...",
-            p2:"如若长时间没响应，大概是服务器跑路了ORZ",
+          LoadingMsg: {
+            p1: "加载中...",
+            p2: "如若长时间没响应，大概是服务器跑路了ORZ",
           },
-          Lists:{
+          Lists: {
             nation: "国家",
             developer: "开发者",
-            dlc:"DLC",
+            dlc: "DLC",
           },
-          Loading:{
-            header:"加载中...",
-            p1:"加载中...",
-            p2:"如若长时间没响应，大概是服务器跑路了ORZ",
+          Loading: {
+            header: "加载中...",
+            p1: "加载中...",
+            p2: "如若长时间没响应，大概是服务器跑路了ORZ",
           },
-          Error:{
-            header:"出错啦",
-            p1:"出错啦 :(",
+          Error: {
+            header: "出错啦",
+            p1: "出错啦 :(",
           },
-          DevDetail:{
-            hp:"开发者主页",
-            mods:"模组"
+          DevDetail: {
+            hp: "开发者主页",
+            mods: "模组",
           },
-          ModDetail:{
-            developer:"开发者",
-            gamestatus:"游戏性",
-            dlc:"DLC",
-            nodlc:"无",
-            note:"备注",
-            vehicles:"载具",
-            infopage:"模组信息页",
-            dlink:"下载链接",
+          ModDetail: {
+            developer: "开发者",
+            gamestatus: "游戏性",
+            dlc: "DLC",
+            nodlc: "无",
+            note: "备注",
+            vehicles: "载具",
+            infopage: "模组信息页",
+            dlink: "下载链接",
           },
-          NationDetail:{
-            vehicles:"载具",
+          NationDetail: {
+            vehicles: "载具",
           },
-          VehicleDetail:{
-            domain:"环境",
-            origin:"起源国",
-            manufacturers:"制造商",
-            mods:"模组",
-            wiki:"百科",
-          }
+          VehicleDetail: {
+            domain: "环境",
+            origin: "起源国",
+            manufacturers: "制造商",
+            mods: "模组",
+            wiki: "百科",
+          },
         },
       },
     },

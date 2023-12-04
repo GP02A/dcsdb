@@ -3,10 +3,21 @@ import ModsList from "../components/ModsList";
 import LoadingMsg from "../components/LoadingMsg";
 import ErrorMsg from "../components/ErrorMsg";
 import { useTranslation } from "react-i18next";
+import {
+  IonContent,
+  IonInfiniteScroll,
+  IonInfiniteScrollContent,
+  IonButton,
+} from "@ionic/react";
+import { useState } from "react";
 
 const SEARCH_MODS = gql`
-  query MODS($lng: I18NLocaleCode) {
-    mods(pagination: { limit: 20 }, sort: "id:desc", locale: $lng) {
+  query MODS($lng: I18NLocaleCode, $start: Int!, $limit: Int!) {
+    mods(
+      pagination: { start: $start, limit: $limit }
+      sort: "id:desc"
+      locale: $lng
+    ) {
       data {
         id
         attributes {
@@ -55,14 +66,62 @@ const SEARCH_MODS = gql`
   }
 `;
 
+const limit = 20;
 const QAmods = () => {
-  const { i18n } = useTranslation();
-  const { loading, error, data } = useQuery(SEARCH_MODS, {
-    variables: { lng: i18n.resolvedLanguage },
+  const { i18n, t } = useTranslation();
+  const [page, setPage] = useState(0);
+  const [hasMore, setHasMore] = useState(true);
+  const { loading, error, data, fetchMore } = useQuery(SEARCH_MODS, {
+    variables: {
+      lng: i18n.resolvedLanguage,
+      start: page * limit,
+      limit: limit,
+    },
+    notifyOnNetworkStatusChange: true,
   });
   if (loading) return <LoadingMsg />;
   if (error) return <ErrorMsg />;
-  return <ModsList mods={data.mods.data} />;
+  const loadMore = async (event) => {
+    setPage(page + 1);
+    const { data: newData } = await fetchMore({
+      variables: {
+        start: (page + 1) * limit,
+      },
+    });
+    console.log(data.mods.data.length);
+    event.target.complete();
+    // Disable infinite scroll when no more data
+    if (newData.mods.data.length < limit) {
+      setHasMore(false);
+      // console.log("no more data");
+    }
+  };
+  // return <ModsList mods={data.mods.data} />;
+  return (
+    <>
+      <ModsList mods={data.mods.data} />
+      {!hasMore && (
+        <IonButton
+          expand="block"
+          fill="outline"
+          href={import.meta.env.BASE_URL + "tab1"}
+          rel="noopener noreferrer"
+        >
+          {t("InfiniteScroll.button")}
+        </IonButton>
+      )}
+      <IonInfiniteScroll
+        threshold="100px"
+        onIonInfinite={(e) => loadMore(e)}
+        disabled={!hasMore}
+      >
+        <IonInfiniteScrollContent
+          loadingSpinner="bubbles"
+          loadingText={t("InfiniteScroll.loadingtext")}
+        ></IonInfiniteScrollContent>
+      </IonInfiniteScroll>
+    </>
+  );
 };
 
 export default QAmods;
