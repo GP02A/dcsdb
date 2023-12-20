@@ -33,11 +33,19 @@ i18n
             searchhint: "Search mods",
             blanksearchalert: "Please enter a search term!",
             blanksearchalertclose: "Close",
+            all: "All",
+            drivable: "Drivable",
+            free: "Free",
+            free_drivable: "Free & Drivable",
           },
           Tab2: {
             searchhint: "Search vehicles",
             blanksearchalert: "Please enter a search term!",
             blanksearchalertclose: "Close",
+            all: "All",
+            air: "Air",
+            water: "Water",
+            land: "Land",
           },
           Tab3: {
             seg1: {
@@ -142,11 +150,19 @@ i18n
             searchhint: "搜索模组",
             blanksearchalert: "请输入模组关键字！",
             blanksearchalertclose: "关闭",
+            all: "全部",
+            drivable: "可驾驶",
+            free: "免费",
+            free_drivable: "免费且可驾驶",
           },
           Tab2: {
             searchhint: "搜索载具",
             blanksearchalert: "请输入载具关键字！",
             blanksearchalertclose: "关闭",
+            all: "全部",
+            air: "空",
+            water: "水",
+            land: "陆",
           },
           Tab3: {
             seg1: {

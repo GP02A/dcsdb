@@ -16,6 +16,7 @@ const SEARCH_MODS = gql`
       pagination: { start: $start, limit: $limit }
       sort: "id:desc"
       locale: $lng
+      filters:{and:[{ dlcs: { id: { eq: null } } },{ game_status: { eq: "drivable" } }]}
     ) {
       data {
         id
@@ -66,7 +67,7 @@ const SEARCH_MODS = gql`
 `;
 
 const limit = 30;
-const QAmods = () => {
+const QAmods_free_drivable = () => {
   const { i18n, t } = useTranslation();
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
@@ -123,4 +124,4 @@ const QAmods = () => {
   );
 };
 
-export default QAmods;
+export default QAmods_free_drivable;

@@ -4,7 +4,6 @@ import LoadingMsg from "../components/LoadingMsg";
 import ErrorMsg from "../components/ErrorMsg";
 import { useTranslation } from "react-i18next";
 import {
-  IonContent,
   IonInfiniteScroll,
   IonInfiniteScrollContent,
   IonButton,
@@ -73,7 +72,7 @@ const SEARCH_VEHICLES = gql`
   }
 `;
 
-const limit = 20;
+const limit = 30;
 const QAvehicles = () => {
   const { i18n, t } = useTranslation();
   const [page, setPage] = useState(0);
@@ -95,7 +94,7 @@ const QAvehicles = () => {
         start: (page + 1) * limit,
       },
     });
-    console.log(data.vehicles.data.length);
+    // console.log(data.vehicles.data.length);
     event.target.complete();
     // Disable infinite scroll when no more data
     if (newData.vehicles.data.length < limit) {

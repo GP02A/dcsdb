@@ -1,5 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
-import ModsList from "../components/ModsList";
+import VehiclesList from "../components/VehiclesList";
 import LoadingMsg from "../components/LoadingMsg";
 import ErrorMsg from "../components/ErrorMsg";
 import { useTranslation } from "react-i18next";
@@ -10,19 +10,46 @@ import {
 } from "@ionic/react";
 import { useState } from "react";
 
-const SEARCH_MODS = gql`
-  query MODS($lng: I18NLocaleCode, $start: Int!, $limit: Int!) {
-    mods(
+const SEARCH_VEHICLES = gql`
+  query VEHICLES($lng: I18NLocaleCode, $start: Int!, $limit: Int!) {
+    vehicles(
       pagination: { start: $start, limit: $limit }
       sort: "id:desc"
       locale: $lng
+      filters: { vehicle_domains: { mid: { eq: 2 } } }
     ) {
       data {
         id
         attributes {
           id: mid
           name
-          developers {
+          alias
+          cover {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          national_origin {
+            data {
+              id
+              attributes {
+                id: mid
+                name
+                displayname
+              }
+            }
+          }
+          manufacturers {
+            data {
+              attributes {
+                id: mid
+                name
+              }
+            }
+          }
+          vehicle_domains {
             data {
               id
               attributes {
@@ -31,26 +58,7 @@ const SEARCH_MODS = gql`
               }
             }
           }
-          game_status
-          dlcs {
-            data {
-              id
-              attributes {
-                id: mid
-                name
-              }
-            }
-          }
-          vehicles {
-            data {
-              id
-              attributes {
-                id: mid
-                name
-              }
-            }
-          }
-          environments {
+          mods {
             data {
               id
               attributes {
@@ -66,11 +74,11 @@ const SEARCH_MODS = gql`
 `;
 
 const limit = 30;
-const QAmods = () => {
+const QAvehicles = () => {
   const { i18n, t } = useTranslation();
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
-  const { loading, error, data, fetchMore } = useQuery(SEARCH_MODS, {
+  const { loading, error, data, fetchMore } = useQuery(SEARCH_VEHICLES, {
     variables: {
       lng: i18n.resolvedLanguage,
       start: page * limit,
@@ -87,23 +95,23 @@ const QAmods = () => {
         start: (page + 1) * limit,
       },
     });
-    // console.log(data.mods.data.length);
+    // console.log(data.vehicles.data.length);
     event.target.complete();
     // Disable infinite scroll when no more data
-    if (newData.mods.data.length < limit) {
+    if (newData.vehicles.data.length < limit) {
       setHasMore(false);
       // console.log("no more data");
     }
   };
-  // return <ModsList mods={data.mods.data} />;
+  // return <VehiclesList vehicles={data.vehicles.data} />;
   return (
     <>
-      <ModsList mods={data.mods.data} />
+      <VehiclesList vehicles={data.vehicles.data} />
       {!hasMore && (
         <IonButton
           expand="block"
           fill="outline"
-          href={import.meta.env.BASE_URL + "tab1"}
+          href={import.meta.env.BASE_URL + "tab2"}
           rel="noopener noreferrer"
         >
           {t("InfiniteScroll.button")}
@@ -123,4 +131,4 @@ const QAmods = () => {
   );
 };
 
-export default QAmods;
+export default QAvehicles;

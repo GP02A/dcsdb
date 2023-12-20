@@ -14,9 +14,6 @@ import {
   IonIcon,
   IonCard,
   IonCardContent,
-  IonFab,
-  IonFabButton,
-  IonFabList,
 } from "@ionic/react";
 import "./Tab3.css";
 import { useState } from "react";
@@ -25,7 +22,6 @@ import {
   checkmarkOutline,
   folderOpen,
   hammer,
-  languageOutline,
 } from "ionicons/icons";
 import QDBstat from "../queries/QDBstat";
 import QLatestV from "../queries/QLatestV";
@@ -35,7 +31,7 @@ import { useTranslation } from "react-i18next";
 
 const Tab3 = () => {
   const [seg, setSeg] = useState("info");
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <IonPage>
       <IonHeader>
@@ -45,7 +41,7 @@ const Tab3 = () => {
             // color="secondary"
             onIonChange={(e) => {
               // console.log("Segment selected", e.detail.value);
-              setSeg(e.detail.value);
+              setSeg(e.detail.value.toString());
             }}
           >
             <IonSegmentButton value="info">
