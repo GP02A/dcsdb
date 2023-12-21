@@ -154,6 +154,7 @@ const NationDetail = (pass) => {
           onIonChange={(e) => {
             setSeg(e.detail.value.toString());
           }}
+          scrollable={true}
         >
           <IonSegmentButton value="all">
             <IonLabel>{t("Tab2.all")}</IonLabel>

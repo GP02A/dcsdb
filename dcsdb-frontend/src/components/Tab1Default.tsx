@@ -16,6 +16,7 @@ const Tab1Default = () => {
         onIonChange={(e) => {
           setSeg(e.detail.value.toString());
         }}
+        scrollable={true}
       >
         <IonSegmentButton value="all">
           <IonLabel>{t('Tab1.all')}</IonLabel>
