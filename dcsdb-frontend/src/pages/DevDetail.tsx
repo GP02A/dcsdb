@@ -41,7 +41,15 @@ const DEV = gql`
                     }
                   }
                 }
-                game_status
+                mod_types {
+                  data {
+                    id
+                    attributes {
+                      id: mid
+                      name
+                    }
+                  }
+                }
               }
             }
           }

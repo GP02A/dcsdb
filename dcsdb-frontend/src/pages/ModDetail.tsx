@@ -42,7 +42,15 @@ const MOD = gql`
               }
             }
           }
-          game_status
+          mod_types {
+            data {
+              id
+              attributes {
+                id: mid
+                name
+              }
+            }
+          }
           developers {
             data {
               id
@@ -138,8 +146,15 @@ const ModDetail = (pass) => {
             </IonItem>
             <IonItem>
               <IonLabel className="ion-text-wrap">
-                {t("ModDetail.gamestatus")}:&nbsp;
-                {data.mod.data.attributes.game_status}
+                {t("ModDetail.type")}:&nbsp;
+                {data.mod.data.attributes.mod_types.data.map(
+                  ({ id, attributes }) => (
+                    <IonChip class="ion-no-margin" outline={true} key={id}>
+                      {attributes.name}
+                    </IonChip>
+                  )
+                )}
+                {/* {data.mod.data.attributes.game_status} */}
               </IonLabel>
             </IonItem>
             <IonItem>
@@ -171,7 +186,7 @@ const ModDetail = (pass) => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {attributes.name}&nbsp;
+                        {attributes.name}
                       </IonButton>
                     )
                   )}

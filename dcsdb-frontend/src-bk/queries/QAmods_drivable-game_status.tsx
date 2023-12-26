@@ -16,9 +16,7 @@ const SEARCH_MODS = gql`
       pagination: { start: $start, limit: $limit }
       sort: "id:desc"
       locale: $lng
-      filters: {
-        and: [{ dlcs: { id: { eq: null } } }, { mod_types: { mid: { eq: 1 } } }]
-      }
+      filters: { game_status: { eq: "drivable" } }
     ) {
       data {
         id
@@ -34,15 +32,7 @@ const SEARCH_MODS = gql`
               }
             }
           }
-          mod_types {
-            data {
-              id
-              attributes {
-                id: mid
-                name
-              }
-            }
-          }
+          game_status
           dlcs {
             data {
               id
@@ -77,7 +67,7 @@ const SEARCH_MODS = gql`
 `;
 
 const limit = 30;
-const QAmods_free_drivable = () => {
+const QAmods_drivable = () => {
   const { i18n, t } = useTranslation();
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
@@ -134,4 +124,4 @@ const QAmods_free_drivable = () => {
   );
 };
 
-export default QAmods_free_drivable;
+export default QAmods_drivable;

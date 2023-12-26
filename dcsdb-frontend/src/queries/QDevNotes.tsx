@@ -9,6 +9,7 @@ import {
   IonCardContent,
 } from "@ionic/react";
 import { useTranslation } from "react-i18next";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 const DN = gql`
   query DN($lng: I18NLocaleCode) {
@@ -20,7 +21,7 @@ const DN = gql`
           DevNotes(pagination: { limit: 10 }, sort: "id:desc") {
             id
             title
-            body
+            content
           }
         }
       }
@@ -40,12 +41,14 @@ const QDevNotes = () => {
   // if (error) return <p>Error :(</p>;
   return (
     <IonList>
-      {data.appInfo.data.attributes.DevNotes.map(({ title, body, id }) => (
+      {data.appInfo.data.attributes.DevNotes.map(({ title, id, content }) => (
         <IonCard key={id}>
           <IonCardHeader>
             <IonCardTitle>{title}</IonCardTitle>
           </IonCardHeader>
-          <IonCardContent>{body}</IonCardContent>
+          <IonCardContent>
+            <BlocksRenderer content={content} />
+          </IonCardContent>
         </IonCard>
       ))}
     </IonList>

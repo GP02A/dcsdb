@@ -50,6 +50,16 @@ const NATION = gql`
                     }
                   }
                 }
+                national_origin {
+                  data {
+                    id
+                    attributes {
+                      id: mid
+                      name
+                      displayname
+                    }
+                  }
+                }
               }
             }
           }
@@ -149,32 +159,36 @@ const NationDetail = (pass) => {
             <IonTitle size="large">{data.nation.data.attributes.name}</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonSegment
-          value={seg}
-          onIonChange={(e) => {
-            setSeg(e.detail.value.toString());
-          }}
-          scrollable={true}
-        >
-          <IonSegmentButton value="all">
-            <IonLabel>{t("Tab2.all")}</IonLabel>
-          </IonSegmentButton>
-          {air.length > 0 && (
-            <IonSegmentButton value="air">
-              <IonLabel>{t("Tab2.air")}</IonLabel>
-            </IonSegmentButton>
-          )}
-          {water.length > 0 && (
-            <IonSegmentButton value="water">
-              <IonLabel>{t("Tab2.water")}</IonLabel>
-            </IonSegmentButton>
-          )}
-          {land.length > 0 && (
-            <IonSegmentButton value="land">
-              <IonLabel>{t("Tab2.land")}</IonLabel>
-            </IonSegmentButton>
-          )}
-        </IonSegment>
+        <IonItemDivider sticky={true}>
+          <IonToolbar>
+            <IonSegment
+              value={seg}
+              onIonChange={(e) => {
+                setSeg(e.detail.value.toString());
+              }}
+              scrollable={true}
+            >
+              <IonSegmentButton value="all">
+                <IonLabel>{t("Tab2.all")}</IonLabel>
+              </IonSegmentButton>
+              {air.length > 0 && (
+                <IonSegmentButton value="air">
+                  <IonLabel>{t("Tab2.air")}</IonLabel>
+                </IonSegmentButton>
+              )}
+              {water.length > 0 && (
+                <IonSegmentButton value="water">
+                  <IonLabel>{t("Tab2.water")}</IonLabel>
+                </IonSegmentButton>
+              )}
+              {land.length > 0 && (
+                <IonSegmentButton value="land">
+                  <IonLabel>{t("Tab2.land")}</IonLabel>
+                </IonSegmentButton>
+              )}
+            </IonSegment>
+          </IonToolbar>
+        </IonItemDivider>
 
         {/* <a href={pass.match.url}>{pass.match.url}</a><br/>
         <a href={import.meta.env.BASE_URL + pass.match.url}>

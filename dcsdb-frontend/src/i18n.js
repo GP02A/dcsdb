@@ -114,7 +114,7 @@ i18n
           },
           ModDetail: {
             developer: "Developer",
-            gamestatus: "Game Status",
+            type: "Type",
             dlc: "DLC",
             nodlc: "none",
             note: "Note",
@@ -231,7 +231,7 @@ i18n
           },
           ModDetail: {
             developer: "开发者",
-            gamestatus: "游戏性",
+            type: "类型",
             dlc: "DLC",
             nodlc: "无",
             note: "备注",

@@ -125,6 +125,12 @@
       },
       "type": "integer",
       "required": true
+    },
+    "mod_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::mod-type.mod-type",
+      "inversedBy": "mods"
     }
   }
 }

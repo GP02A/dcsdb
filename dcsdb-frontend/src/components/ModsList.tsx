@@ -12,7 +12,7 @@ const ModsList = (props) => {
             <h3 className="ion-text-wrap">{attributes.name}</h3>
             {attributes.developers && attributes.developers.data.length > 0 && (
               <p>
-                {t('Lists.developer')}:&nbsp;
+                {t("Lists.developer")}:&nbsp;
                 {attributes.developers.data.map(({ id, attributes }) => (
                   <span key={id}>{attributes.name}&nbsp;</span>
                 ))}
@@ -20,7 +20,7 @@ const ModsList = (props) => {
             )}
             {attributes.dlcs.data.length > 0 && (
               <p>
-                {t('Lists.dlc')}:&nbsp;
+                {t("Lists.dlc")}:&nbsp;
                 {attributes.dlcs.data.map(({ id, attributes }) => (
                   <span key={id}>{attributes.name}&nbsp;</span>
                 ))}
@@ -36,9 +36,23 @@ const ModsList = (props) => {
               </p>
             )} */}
           </IonLabel>
-          <IonChip slot="end" class="ion-no-margin" outline={true}>
+          {attributes.mod_types.data.length > 0 && (
+            <>
+              {attributes.mod_types.data.map(({ id, attributes }) => (
+                <IonChip
+                  slot="end"
+                  class="ion-no-margin"
+                  outline={true}
+                  key={id}
+                >
+                  {attributes.name}&nbsp;
+                </IonChip>
+              ))}
+            </>
+          )}
+          {/* <IonChip slot="end" class="ion-no-margin" outline={true}>
             {attributes.game_status}
-          </IonChip>
+          </IonChip> */}
         </IonItem>
       ))}
     </React.Fragment>

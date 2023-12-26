@@ -1122,6 +1122,11 @@ export interface ApiModMod extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    mod_types: Attribute.Relation<
+      'api::mod.mod',
+      'manyToMany',
+      'api::mod-type.mod-type'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1133,6 +1138,72 @@ export interface ApiModMod extends Schema.CollectionType {
       'api::mod.mod',
       'oneToMany',
       'api::mod.mod'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiModTypeModType extends Schema.CollectionType {
+  collectionName: 'mod_types';
+  info: {
+    singularName: 'mod-type';
+    pluralName: 'mod-types';
+    displayName: 'Mod-Type';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    uniname: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    mid: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    mods: Attribute.Relation<
+      'api::mod-type.mod-type',
+      'manyToMany',
+      'api::mod.mod'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::mod-type.mod-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::mod-type.mod-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::mod-type.mod-type',
+      'oneToMany',
+      'api::mod-type.mod-type'
     >;
     locale: Attribute.String;
   };
@@ -1541,6 +1612,7 @@ declare module '@strapi/types' {
       'api::environment.environment': ApiEnvironmentEnvironment;
       'api::manufacturer.manufacturer': ApiManufacturerManufacturer;
       'api::mod.mod': ApiModMod;
+      'api::mod-type.mod-type': ApiModTypeModType;
       'api::nation.nation': ApiNationNation;
       'api::platform.platform': ApiPlatformPlatform;
       'api::utility.utility': ApiUtilityUtility;

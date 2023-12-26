@@ -16,7 +16,7 @@ const SEARCH_MODS = gql`
       pagination: { start: $start, limit: $limit }
       sort: "id:desc"
       locale: $lng
-      filters: { game_status: { eq: "drivable" } }
+      filters: { mod_types: { mid: { eq: 1 } } }
     ) {
       data {
         id
@@ -32,7 +32,15 @@ const SEARCH_MODS = gql`
               }
             }
           }
-          game_status
+          mod_types{
+            data{
+              id
+              attributes{
+                id: mid
+                name
+              }
+            }
+          }
           dlcs {
             data {
               id
