@@ -66,7 +66,7 @@ const VEHICLE = gql`
               }
             }
           }
-          mods(pagination: { limit: 50 }, sort: "id:desc") {
+          mods(pagination: { limit: 50 }, sort: "mid:desc") {
             data {
               id
               attributes {
@@ -150,7 +150,7 @@ const VehicleDetail = (pass) => {
             <IonItem>
               <IonLabel className="ion-text-wrap">
                 {t("VehicleDetail.domain")}:&nbsp;
-                {data.vehicle.data.attributes.vehicle_domains.data.length > 0 &&
+                {data.vehicle.data.attributes.vehicle_domains && data.vehicle.data.attributes.vehicle_domains.data.length > 0 &&
                   data.vehicle.data.attributes.vehicle_domains.data.map(
                     ({ id, attributes }) => (
                       <IonChip outline={true} key={id}>
@@ -163,7 +163,7 @@ const VehicleDetail = (pass) => {
             <IonItem>
               <IonLabel className="ion-text-wrap">
                 {t("VehicleDetail.origin")}:&nbsp;
-                {data.vehicle.data.attributes.national_origin.data.length > 0 &&
+                {data.vehicle.data.attributes.national_origin && data.vehicle.data.attributes.national_origin.data.length > 0 &&
                   data.vehicle.data.attributes.national_origin.data.map(
                     ({ id, attributes }) => (
                       <IonButton
@@ -182,7 +182,7 @@ const VehicleDetail = (pass) => {
             <IonItem>
               <IonLabel className="ion-text-wrap">
                 {t("VehicleDetail.manufacturers")}:&nbsp;
-                {data.vehicle.data.attributes.manufacturers.data.length > 0 &&
+                {data.vehicle.data.attributes.manufacturers && data.vehicle.data.attributes.manufacturers.data.length > 0 &&
                   data.vehicle.data.attributes.manufacturers.data.map(
                     ({ id, attributes }) => (
                       <span key={id}>{attributes.name}&nbsp;</span>
@@ -195,7 +195,7 @@ const VehicleDetail = (pass) => {
               <IonItem>
                 <IonLabel className="ion-text-wrap">
                   {t("VehicleDetail.mods")}:&nbsp;
-                  {data.vehicle.data.attributes.mods.data.length > 0 &&
+                  {data.vehicle.data.attributes.mods && data.vehicle.data.attributes.mods.data.length > 0 &&
                     data.vehicle.data.attributes.mods.data.map(
                       ({ id, attributes }) => (
                         <IonButton

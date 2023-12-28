@@ -16,7 +16,7 @@ const SEARCH_VEHICLES = gql`
         ]
       }
       pagination: { limit: 20 }
-      sort: "id:desc"
+      sort: "mid:desc"
       locale: $lng
     ) {
       data {

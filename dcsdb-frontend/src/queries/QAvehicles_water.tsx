@@ -14,7 +14,7 @@ const SEARCH_VEHICLES = gql`
   query VEHICLES($lng: I18NLocaleCode, $start: Int!, $limit: Int!) {
     vehicles(
       pagination: { start: $start, limit: $limit }
-      sort: "id:desc"
+      sort: "mid:desc"
       locale: $lng
       filters: { vehicle_domains: { mid: { eq: 2 } } }
     ) {

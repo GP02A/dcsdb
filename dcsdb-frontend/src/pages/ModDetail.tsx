@@ -60,7 +60,7 @@ const MOD = gql`
               }
             }
           }
-          vehicles(pagination: { limit: 50 }, sort: "id:desc") {
+          vehicles(pagination: { limit: 50 }, sort: "mid:desc") {
             data {
               id
               attributes {
@@ -126,7 +126,7 @@ const ModDetail = (pass) => {
             <IonItem>
               <IonLabel className="ion-text-wrap">
                 {t("ModDetail.developer")}:&nbsp;
-                {data.mod.data.attributes.developers.data.length > 0 &&
+                {data.mod.data.attributes.developers && data.mod.data.attributes.developers.data.length > 0 &&
                   data.mod.data.attributes.developers.data.map(
                     ({ id, attributes }) => (
                       <IonButton
@@ -173,7 +173,7 @@ const ModDetail = (pass) => {
                 )}
               </IonLabel>
             </IonItem>
-            {data.mod.data.attributes.vehicles.data.length > 0 && (
+            {data.mod.data.attributes.vehicles && data.mod.data.attributes.vehicles.data.length > 0 && (
               <IonItem>
                 <IonLabel className="ion-text-wrap">
                   {t("ModDetail.vehicles")}:&nbsp;

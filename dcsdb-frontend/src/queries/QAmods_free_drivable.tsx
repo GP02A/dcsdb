@@ -14,7 +14,7 @@ const SEARCH_MODS = gql`
   query MODS($lng: I18NLocaleCode, $start: Int!, $limit: Int!) {
     mods(
       pagination: { start: $start, limit: $limit }
-      sort: "id:desc"
+      sort: "mid:desc"
       locale: $lng
       filters: {
         and: [{ dlcs: { id: { eq: null } } }, { mod_types: { mid: { eq: 1 } } }]

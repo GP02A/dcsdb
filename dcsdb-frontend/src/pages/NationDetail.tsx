@@ -28,7 +28,7 @@ const NATION = gql`
         attributes {
           id: mid
           name
-          vehicles(pagination: { limit: 200 }, sort: "id:desc") {
+          vehicles(pagination: { limit: 200 }, sort: "mid:desc") {
             data {
               id
               attributes {

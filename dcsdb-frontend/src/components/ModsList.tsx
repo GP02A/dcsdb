@@ -18,7 +18,7 @@ const ModsList = (props) => {
                 ))}
               </p>
             )}
-            {attributes.dlcs.data.length > 0 && (
+            {attributes.dlcs && attributes.dlcs.data.length > 0 && (
               <p>
                 {t("Lists.dlc")}:&nbsp;
                 {attributes.dlcs.data.map(({ id, attributes }) => (
@@ -36,7 +36,7 @@ const ModsList = (props) => {
               </p>
             )} */}
           </IonLabel>
-          {attributes.mod_types.data.length > 0 && (
+          {attributes.mod_types && attributes.mod_types.data.length > 0 && (
             <>
               {attributes.mod_types.data.map(({ id, attributes }) => (
                 <IonChip

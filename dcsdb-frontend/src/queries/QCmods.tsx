@@ -17,7 +17,7 @@ const SEARCH_MODS = gql`
         ]
       }
       pagination: { limit: 20 }
-      sort: "id:desc"
+      sort: "mid:desc"
       locale: $lng
     ) {
       data {
@@ -34,7 +34,15 @@ const SEARCH_MODS = gql`
               }
             }
           }
-          game_status
+          mod_types{
+            data{
+              id
+              attributes{
+                id: mid
+                name
+              }
+            }
+          }
           dlcs {
             data {
               id

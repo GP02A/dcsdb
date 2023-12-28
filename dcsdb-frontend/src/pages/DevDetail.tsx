@@ -26,7 +26,7 @@ const DEV = gql`
           id: mid
           name
           hp
-          mods(pagination: { limit: 100 }, sort: "id:desc") {
+          mods(pagination: { limit: 100 }, sort: "mid:desc") {
             data {
               id
               attributes {
